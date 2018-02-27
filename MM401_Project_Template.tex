@@ -537,9 +537,9 @@ The problem we wish to solve is
 
 \begin{equation} \label{3deq}
 \begin{aligned}
-    &u_{tt}-c^2\Delta u=0 \quad \textrm {for} \quad x \in \mathbb{R}^3, \quad t \in \mathbb{R}_{>0}\\
-    &u(x,0)=g(x)\\
-    &u_t(x,0)=h(x).\\
+    &u_{tt}-c^2(u_{xx}+u_{yy}+u_{zz})=0 \quad \textrm {for} \quad x, y, z \in \mathbb{R}^3, \quad t \in \mathbb{R}_{>0}\\
+    &u(x, y, z,0)=g(x,y,z)\\
+    &u_t(x,y,z,0)=h(x,y,z).\\
 \end{aligned}
 \end{equation}
 
@@ -551,22 +551,22 @@ As we proceed with our proof of the three dimensional wave equation, we require 
 can be found in Evans' book ``Partial Differential Equations'', \cite{Ev}.
 \\
 
-Firstly, we introduce some notation to simplify our work in the upcoming sections. If we let $x\in \mathbb{R}^n, t>0, r>0$, then we have:
+Firstly, we introduce some notation to simplify our work in the upcoming sections. If we let $\boldsymbol{x}\in \mathbb{R}^n, t>0, r>0$, then we have:
 
 \begin{equation} \label{averageU}
-    U(x;r,t)=\dashint_{\partial B(x,r)}u(y,t)dS(y),
+    U(\boldsymbol{x};r,t)=\dashint_{\partial B(\boldsymbol{x},r)}u(\boldsymbol{y},t)dS(\boldsymbol{y}),
 \end{equation}
 
-the average of $u(\cdot,t)$ over the sphere $\partial B(x,r)$, as in \cite{Ev}. Similarly, we have the averages of $g$ and $h$ over the same sphere:
+the average of $u(\cdot,t)$ over the sphere $\partial B(\boldsymbol{x},r)$, as in \cite{Ev}. Similarly, we have the averages of $g$ and $h$ over the same sphere:
 
 \begin{equation} \label{averageGH}
     \begin{aligned}
-        &G(x,r)=\dashint_{\partial B(x,r)}g(y)dS(y)\\
-        &H(x,r)=\dashint_{\partial B(x,r)}h(y)dS(y).
+        &G(\boldsymbol{x},r)=\dashint_{\partial B(\boldsymbol{x},r)}g(\boldsymbol{y})dS(\boldsymbol{y})\\
+        &H(\boldsymbol{x},r)=\dashint_{\partial B(\boldsymbol{x},r)}h(\boldsymbol{y})dS(\boldsymbol{y}).
     \end{aligned}
 \end{equation}
 
-When we fix $x$, we can regard $U$ as a function of just $r$ and $t$. Note that if $u$ satisfies equation
+When we fix $\boldsymbol{x}$, we can regard $U$ as a function of just $r$ and $t$. Note that if $u$ satisfies equation
 (\ref{3deq}), then we have $U \in C^m(\mathbb{R}_{\ge 0}\times[0,\infty))$, where $\mathbb{R}_{\ge 0}$ is the set of all the positive real numbers. The \emph{Euler-Poisson-Darbuox equation} is
 
 \begin{equation} \label{EPDeq}
@@ -647,28 +647,28 @@ Note that $\tilde{G}_{rr}(0)=0$ as $\tilde{U}(r,0)=\tilde{G}(r)$ in (\ref{tilUwa
 the solution (\ref{bvpsol}) to (\ref{tilUwave}). Hence, for $0 \le r \le t$ we have 
 
 \begin{equation} \label{newUtil}
-    \tilde{U}(x;r,t)=\frac{1}{2c}\left[\tilde{G}(r+ct)-\tilde{G}(r-ct)\right]+\frac{1}{2c}\int^{r+ct}_{-r+ct}\tilde{H}(y)dy.
+    \tilde{U}(\boldsymbol{x};r,t)=\frac{1}{2c}\left[\tilde{G}(r+ct)-\tilde{G}(r-ct)\right]+\frac{1}{2c}\int^{r+ct}_{-r+ct}\tilde{H}(\boldsymbol{y})d\boldsymbol{y}.
 \end{equation} 
 
-Note that our definition of $U$ from (\ref{averageU}) implies that $u(x,t)=\lim_{r\rightarrow 0^+}U(x;r,t)$, so our definitions of $\tilde{G}, \tilde{H}$ in (\ref{GHdash}),
+Note that our definition of $U$ from (\ref{averageU}) implies that $u(\boldsymbol{x},t)=\lim_{r\rightarrow 0^+}U(\boldsymbol{x};r,t)$, so our definitions of $\tilde{G}, \tilde{H}$ in (\ref{GHdash}),
  and the new expression for $\tilde{U}$ from (\ref{newUtil}) lead to
 
 \begin{equation} \label{almostK}
     \begin{aligned}
-        u(x,t)&=\lim_{r\rightarrow 0^+}\frac{\tilde{U}(x;r,t)}{r}\\
-        &=\lim_{r\rightarrow 0^+}\left[\frac{\tilde{G}(r+ct)-\tilde{G}(r-ct)}{2rc}+\frac{1}{2rc}\int^{r+ct}_{-r+ct}\tilde{H}(y)dy\right]\\
+        u(\boldsymbol{x},t)&=\lim_{r\rightarrow 0^+}\frac{\tilde{U}(\boldsymbol{x};r,t)}{r}\\
+        &=\lim_{r\rightarrow 0^+}\left[\frac{\tilde{G}(r+ct)-\tilde{G}(r-ct)}{2rc}+\frac{1}{2rc}\int^{r+ct}_{-r+ct}\tilde{H}(\boldsymbol{y})d\boldsymbol{y}\right]\\
         &=\tilde{G}'(t)+\tilde{H}(t)\\
-        &=\diffp[1]{}{t}\left[t\dashint_{\partial B(x,t)}{gdS} \right]+t\dashint_{\partial B(x,t)}{hdS} \quad \textrm{by (\ref{averageGH})}
+        &=\diffp[1]{}{t}\left[t\dashint_{\partial B(\boldsymbol{x},t)}{gdS} \right]+t\dashint_{\partial B(\boldsymbol{x},t)}{hdS} \quad \textrm{by (\ref{averageGH})}
     \end{aligned}
 \end{equation}
 
-Note that in (\ref{prereq}) we saw that $\int_{\partial B(x,t)}f(y)dS=t^2\int_{\partial B(0,1)} f(x+tz)dS(z)$. We will use this to complete our solution of the
+Note that in section \ref{prereq} we saw that $\int_{\partial B(x,t)}f(y)dS=t^2\int_{\partial B(0,1)} f(x+tz)dS(z)$. We will use this to complete our solution of the
 three dimensional wave equation:
 
 \begin{equation*}
     \begin{aligned}
-    \diffp[1]{}{t}\dashint_{\partial B(x,t)} {g(y)dS} &= \dashint_{\partial B(0,1)} {Dg(x+tz)zdS(z)}\\
-    &=\dashint_{\partial B(x,t)}{Dg(y)(\frac{y-x}{t})dS(y)},
+    \diffp[1]{}{t}\dashint_{\partial B(\boldsymbol{x},t)} {g(\boldsymbol{y})dS} &= \dashint_{\partial B(0,1)} {Dg(\boldsymbol{x}+tz)zdS(z)}\\
+    &=\dashint_{\partial B(\boldsymbol{x},t)}{Dg(\boldsymbol{y})(\frac{\boldsymbol{y}-\boldsymbol{x}}{t})dS(\boldsymbol{y})},
     \end{aligned}
 \end{equation*}
 
@@ -676,7 +676,7 @@ where $D$ represents the first-order derivative with respect to time. Substituti
 actually due to Poisson, see \cite{Str}:
 
 \begin{equation*}
-    u(x,t)=\dashint_{\partial B(x,t)}{th(y)+Dg(y)(\frac{y-x}{t})+g(y)dS(y)}.
+    u(\boldsymbol{x},t)=\dashint_{\partial B(\boldsymbol{x},t)}{th(\boldsymbol{y})+Dg(\boldsymbol{y})(\frac{\boldsymbol{y}-\boldsymbol{x}}{t})+g(\boldsymbol{y})dS(\boldsymbol{y})}.
 \end{equation*}
 
 \subsection{Another Formula}
@@ -709,10 +709,100 @@ in time, i.e. once a signal reaches a point in the two-dimensional space, it con
 
 \emph{Huygens's Principle} allowed us to straightforwardly derive the solution of the three-dimensional equation using spherical means. However, this same principle
 means that the same method cannot be employed to solve the two-dimensional equation, but it offers an alternative based on the three-dimensional problem. The trick is
-to solve the case in three dimensions and then \emph{descend} into two dimensions by letting the $z$-coordinate equal $0$, as in \cite{Ev}. We shall see how this works in the 
+to solve the case in three dimensions and then \emph{descend} into two dimensions by letting the $z$-coordinate in $u_{tt}=c^2(u_{xx}+u_{yy}+u_{zz}$ equal $0$, as in \cite{Ev}. We shall see how this works in the 
 next section. 
 
 \subsection{Poisson's Formula}
+
+In this section we will prove the solution to the two-dimensional wave equation. We cannot transform the \emph{Euler-Poisson-Darboux equation} (\ref{EPDeq}) using (\ref{Udash}) and (\ref{GHdash}) 
+into the one-dimensional equation when $n=2$. This is why we do not have a specific method to solving the two-dimensional problem other that considering it as the previously solved three-dimensional problem
+with the third spatial coordinate equal to $0$. Let $u \in C^2(\mathbb{R}^2 \times [0, \infty))$ solve the wave equation in two-dimensions:
+
+\begin{equation} \label{2d}
+    \begin{aligned}
+        &u_{tt}-c^2(u_{xx}+u_{yy})=0 \quad \textrm{with} \quad x,y \in \mathbb{R}, \quad t\in \mathbb{R}_{>0}\\
+        &u(x, y, 0)=g(x,y),\\
+        &u_t(x,y,0)=h(x,y).
+    \end{aligned}
+\end{equation}
+
+Then, we have $\bar{u}(x, y, z, t):=u(x, y, t)$, and so, the problem we wish to solve becomes:
+
+\begin{equation} \label{2das3d}
+    \begin{aligned}
+        &\bar{u}_{tt}-c^2(\bar{u}_{xx}+\bar{u}_{yy}+\bar{u}_{zz})=0 \quad \textrm{with} \quad x,y,z \in \mathbb{R}, \quad t\in \mathbb{R}_{>0}\\
+        &\bar{u}(x, y, z, 0)=\bar{g}(x,y,z), \quad \textrm{where} \quad \bar{g}(x,y,z)=g(x,y)\\
+        &\bar{u}_t(x,y,z,0)=\bar{h}(x,y,z), \quad \textrm{where} \quad \bar{h}(x,y,z)=h(x,y).
+    \end{aligned}
+\end{equation}
+
+Let $\boldsymbol{x}=(x,y)\in \mathbb{R}^2$ and $\boldsymbol{\bar{x}}=(x,y, 0)\in \mathbb{R}^3$. Then, combining (\ref{2das3d}) with the (\ref{almostK}) form of Kirchhoff's formula, we obtain:
+
+\begin{equation} \label{star}
+    \begin{aligned}
+        u(\boldsymbol{x},t)&=\bar{u}(\boldsymbol{\bar{x}}, t)\\
+        &=\diffp[1]{}{t}\Big(t\dashint_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)} \bar{g} d\bar{S}\Big)+t \dashint_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)} \bar{h}d\bar{S},
+    \end{aligned}
+\end{equation}
+
+where $\partial\bar{B}(\boldsymbol{\bar{x}},t)$ is the ball centered at $\boldsymbol{\bar{x}}$, of radius $t>0$, in $\mathbb{R}^3$, and that $d\bar{S}$ is the two-dimensional measure on 
+$\partial\bar{B}(\boldsymbol{\bar{x}},t)$. Note that $\dashint_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)} \bar{g} d\bar{S}=\frac{1}{4\pi t^2}\int_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)}\bar{g} d\bar{S}$, as they
+both represent the average over the sphere. Let $\gamma (\boldsymbol{y})=(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}$, for $\boldsymbol{y} \in B(\boldsymbol{x}, t)$. Using 
+this we obtain:
+
+\begin{equation*}
+    \begin{aligned}
+        \dashint_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)} \bar{g} d\bar{S}&=\frac{1}{4\pi t^2}\int_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)}\bar{g} d\bar{S}\\
+        &=\frac{2}{4 \pi t^2} \int_{B(\boldsymbol{x}, t)} g(\boldsymbol{y})(1+|D\gamma (\boldsymbol{y})|^2)^{1/2}d\boldsymbol{y}.
+    \end{aligned}
+\end{equation*}
+
+We have the $2$ as the numerator of the fraction as the sphere $\partial\bar{B}(\boldsymbol{\bar{x}}, t)$ consists of two hemispheres. Furthermore, $D\gamma (\boldsymbol{y})$ is the first derivative of $\gamma$ with respect to $\boldsymbol{y}$, and it is
+$D\gamma (\boldsymbol{y})=-\frac{|\boldsymbol{y}-\boldsymbol{x}|}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}$. Then,
+
+\begin{equation*}
+    \begin{aligned}
+        (1+|D\gamma (\boldsymbol{y})|^2)^{1/2}&=\Big(1-\Big(\frac{|\boldsymbol{y}-\boldsymbol{x}|}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}\Big)^2\Big)^{1/2}\\
+        &=\Big(1+\frac{|\boldsymbol{x}-\boldsymbol{y}|^2}{t^2-|\boldsymbol{y}-\boldsymbol{x}|^2}\Big)^{1/2}\\
+        &=\Big(\frac{t^2}{t^2-|\boldsymbol{y}-\boldsymbol{x}|^2}\Big)^{1/2}\\
+        &=t(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{-1/2}.
+    \end{aligned}
+\end{equation*}
+
+So, our integral becomes:
+
+\begin{equation*}
+    \begin{aligned}
+        \dashint_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)} \bar{g} d\bar{S}&=\frac{1}{2 \pi t^2}\int_{B(\boldsymbol{x},t)}\frac{tg(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}\\
+        &=\frac{1}{2 \pi t}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}\\
+        &=\frac{t}{2}\dashint_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}.
+    \end{aligned}
+\end{equation*}
+
+Hence, (\ref{star}) becomes
+
+\begin{equation} \label{triangle}
+    \begin{split}
+        u(\boldsymbol{x},t)=\frac{1}{2}\diffp[1]{}{t}\Big(t^2\dashint_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}\\
+        +\frac{t^2}{2}\dashint_{B(\boldsymbol{x},t)}\frac{h(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}.
+    \end{split}
+\end{equation}
+
+Using a similar transformation to the one described in section \ref{prereq}, we get that $t^2\dashint_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2})}d\boldsymbol{y}=t\dashint_{B(0,1)}\frac{g(\boldsymbol{x}+t\boldsymbol{z})}{(1-|\boldsymbol{z}|^2)^{1/2}}d\boldsymbol{y}$. 
+Therefore, the first part of (\ref{triangle}) can be written as:
+
+\begin{equation*}
+    \begin{aligned}
+        \diffp[1]{}{t}\Big(t^2\dashint\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2})}d\boldsymbol{y}\Big)&=\dashint_{B(0,1)}\frac{g(\boldsymbol{x}+t\boldsymbol{z})}{(1-|\boldsymbol{z}|^2)^{1/2}}d\boldsymbol{z}+t\dashint_{B(0,1)}\frac{Dg(\boldsymbol{x}+t\boldsymbol{z})\cdot \boldsymbol{z}}{(1-|\boldsymbol{z}|^2)^{1/2}}d\boldsymbol{z}\\
+        &=t\dashint_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}+t\dashint_{B(\boldsymbol{x},t)} \frac{Dg(\boldsymbol{y})\cdot (\boldsymbol{y}-\boldsymbol{x})}{t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}.
+    \end{aligned}
+\end{equation*}
+
+We can now rewrite $u(\boldsymbol{x},t)$ from (\ref{triangle}) in the form of the solution of the two-dimensional wave equation, also known as Poisson's formula, see \cite{Ev}.
+ 
+\begin{equation*}
+    u(\boldsymbol{x},t)=\frac{1}{2}\dashint_{B(\boldsymbol{x},t)} \frac{tg(\boldsymbol{y})+t^2h(\boldsymbol{y})+tDg(\boldsymbol{y})\cdot (\boldsymbol{y}-\boldsymbol{x})}{t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}.
+\end{equation*}
 
 \section{Solutions in Higher Dimensions}
 
