@@ -1,6 +1,6 @@
 \documentclass[a4paper, 12pt]{article}
 \setlength{\textheight}{24.0cm}
-\setlength{\textwidth}{14.5cm}
+\setlength{\textwidth}{16cm}
 \setlength{\parindent}{0.0cm}
 \setlength{\topmargin}{-1.0cm}
 \setlength{\oddsidemargin}{0.0cm}
@@ -98,11 +98,24 @@
     \tableofcontents
     \newpage
     
-    \section{Introduction}
-    This will be the introduction.
-    
-    \section{Derivation of the Wave Equation}
-    In this section, we will derive the wave equation in one- and two-dimensions, showing a pattern that 
+\section{Introduction}
+This project presents the wave equation and its solution in one, two, three and higher dimensions. The wave equation is a partial differential equation (PDE), an identity
+that relates independent variables ($x, y...$), the dependent variable $u$ (a function of the independent variables) and the partial derivatives of $u$. The wave 
+equation is a PDE of second order, given by the highest appearing derivative, see \cite{Fol}.
+\\
+
+A guitar and a violin make different sounds, despite both being played by plucking the string. The wave equation allows an insight into how this happens through an
+accurate model of the vibrating string. Musical instruments are not however, the  only application of the wave equation, which can model accurately electromagnetic 
+waves, waves in fluids, waves caused by volcanes and earthquakes and even has a role in quantum mechanics. Historically, it is of importance and many important 18th century
+mathematicians: D'Alambert, Euler, Lagrange and Bernoulli, to name a few, had contributions to the development, modelling and solving of the wave equation, see \cite{Coc}.
+\\
+
+In this project we focus our attention on the general wave equation which works in any number of dimensions. We begin by deriving it from physical principles, and then 
+focus most of our attention on solving the problem in one, three and two dimensions, generalising our result to higher dimensions. We then finish by proving the uniqueness 
+of our solution.
+
+\section{Derivation of the Wave Equation}
+In this section, we will derive the wave equation in one- and two-dimensions, showing a pattern that 
 can be extended to higher dimensions. Note that the images have been created using \emph{Photoshop}, but their original version comes from \cite{Kr}.
 
 \subsection{One-Dimension}
@@ -492,6 +505,7 @@ Hence, we define:
         \end{cases}
     \end{aligned}
 \end{equation*}
+\\
 
 and so (\ref{bvp1d}) becomes 
 
@@ -527,6 +541,7 @@ In this section we will prove the solution to the three-dimensional wave equatio
 means}, which allow us to transform the partial differential equation into an integral over a sphere of radius $r$, centered at some point $\boldsymbol{x}$. 
 Some advantages to using an integral form are that we obtain the solution on the whole domain and that we automatically take into account any
 boundary conditions. For more information on spherical means, please see \cite{Sab}. 
+\\
 \\
 
 The problem we wish to solve is
@@ -612,6 +627,8 @@ We now want to derive the formula for the solution to the wave equation in three
 
 where $U,G$ and $H$ are defined as in (\ref{averageU}) and (\ref{averageGH}), respectively. 
 \\
+\\
+\\
 
 Using this notation and the \emph{Euler-Poisson-Darboux equation} we can
 obtain the boundary value problem solved in Section \ref{anapplication}:
@@ -656,6 +673,7 @@ Note that our definition of $U$ from (\ref{averageU}) implies that $u(\boldsymbo
         &=\diffp[1]{}{t}\left[t\dashint_{\partial B(\boldsymbol{x},t)}{gdS} \right]+t\dashint_{\partial B(\boldsymbol{x},t)}{hdS} \quad \textrm{by (\ref{averageGH})}
     \end{aligned}
 \end{equation}
+\\
 
 Note that in section \ref{prereq} we saw that $\int_{\partial B(\boldsymbol{x},t)}f(\boldsymbol{y})dS=t^2\int_{\partial B(\boldsymbol{0},1)} f(\boldsymbol{x}+t\boldsymbol{z})dS(\boldsymbol{z})$. We will use this to complete our solution of the
 three dimensional wave equation:
@@ -753,7 +771,11 @@ this we obtain:
 \end{equation*}
 
 We have $2$ as the numerator of the fraction as the sphere $\partial\bar{B}(\boldsymbol{\bar{x}}, t)$ consists of two hemispheres. Furthermore, $D\gamma (\boldsymbol{y})$ is the first derivative of $\gamma$ with respect to $\boldsymbol{y}$, and it is
-$D\gamma (\boldsymbol{y})=-\frac{|\boldsymbol{y}-\boldsymbol{x}|}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}$. Then,
+$D\gamma (\boldsymbol{y})=-\frac{|\boldsymbol{y}-\boldsymbol{x}|}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}$. 
+\\
+\\
+
+Then,
 
 \begin{equation*}
     \begin{aligned}
@@ -818,5 +840,6 @@ We can now rewrite $u(\boldsymbol{x},t)$ from (\ref{triangle}) in the form of th
 \bibitem[Loom]{LooSter} Lynn Loomis, Shlomo Sternberg, Advanced Calculus
 \bibitem[Fol]{Fol} Folland, Introduction to PDEs
 \bibitem[Hil]{Hil} Courant and Hilbert, Methods of Mathematical Physics
+\bibitem[Coc]{Coc} Rich Cochrane, The Secret Life of Equations
 \end{thebibliography} 
 \end{document}
