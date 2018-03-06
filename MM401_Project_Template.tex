@@ -101,32 +101,32 @@
 \section{Introduction}
 This project presents the wave equation and its solution in one, two, three and higher dimensions. The wave equation is a partial differential equation (PDE), an identity
 that relates independent variables ($x, y...$), the dependent variable $u$ (a function of the independent variables) and the partial derivatives of $u$. The wave 
-equation is a PDE of second order, given by the highest appearing derivative, see \cite{Fol}.
+equation is a PDE of the second order, given by the highest appearing derivative, see \cite{Fol}.
 \\
 
 A guitar and a violin make different sounds, despite both being played by plucking the string. The wave equation allows an insight into how this happens through an
-accurate model of the vibrating string. Musical instruments are not however, the  only application of the wave equation, which can model accurately electromagnetic 
-waves, waves in fluids, waves caused by volcanes and earthquakes and even has a role in quantum mechanics. Historically, it is of importance and many important 18th century
+accurate model of the vibrating string. Musical instruments are not, however, the  only application of the wave equation, which can model accurately electromagnetic 
+waves, waves in fluids, waves caused by volcanoes and earthquakes and even has a role in quantum mechanics. Historically, it is of importance and many representative 18th century
 mathematicians: D'Alambert, Euler, Lagrange and Bernoulli, to name a few, had contributions to the development, modelling and solving of the wave equation, see \cite{Coc}.
 \\
 
-In this project we focus our attention on the general wave equation which works in any number of dimensions. We begin by deriving it from physical principles, and then 
+In this project, we focus our attention on the general wave equation which works in any number of dimensions. We begin by deriving it from physical principles, and then 
 focus most of our attention on solving the problem in one, three and two dimensions, generalising our result to higher dimensions. We then finish by proving the uniqueness 
 of our solution.
 
 \section{Derivation of the Wave Equation}
 In this section, we will derive the wave equation in one- and two-dimensions, showing a pattern that 
-can be extended to higher dimensions. Note that the images have been created using \emph{Photoshop}, but their original version comes from \cite{Kr}.
+we can extend to higher dimensions. Note that the images have been created using \emph{Photoshop}, but their original version comes from \cite{Kr}.
 
 \subsection{One-Dimension}
 The wave equation arises from the movement of a string in a musical instrument, such as a guitar or a violin, see
-\cite{BoyDiP}. This string is perfectly elastic and
-it is stretched between two supports, at $x=0$ and at $x=L$. The elastic string is of length $L$, as
+\cite{BoyDiP}. This string is perfectly elastic, and
+it is stretched between two supports, at $x=0$ and $x=L$. The elastic string is of length $L$, as
 illustrated in Figure \ref{fig:1a}. At time $t=0$, the string is set into motion and left undisturbed to vibrate in the
-vertical plane. For this derivation of the wave equation we will simplify things by neglecting damping 
+vertical plane. For this derivation of the wave equation, we will simplify things by neglecting damping 
 effects such as air resistance. We will obtain this using the Newtonian
 mechanics of forces on a small part of the string, of length $\Delta x$, which lies between $x$ and 
-$x+\Delta x$. The motion of this piece of string is very small and negligible in the horizontal plane
+$x+\Delta x$. The motion of this piece of string is very small and negligible in the horizontal plane,
 and so we only have movement
 in the vertical direction, see \cite{Kr}. Let $u(x,t)$ be the vertical displacement of point $x$ at the time $t$, 
 $T(x,t)$ - the tension in the string that acts only in the direction tangent to the string, and $\rho$ the 
@@ -176,7 +176,7 @@ of the displacement with respect to time. Here,
     T(x+\Delta x,t)\sin{(\theta + \Delta \theta)}-T(x,t)\sin{\theta}=\rho\Delta x u_{tt} (\bar{x},t).
  \end{equation}
 
- Normally, the weight of the string would also act vertically downwards, but it is neglected here. Similarly to the 
+ Usually, the weight of the string would also act vertically downwards, but we neglect it here. Similarly to the 
  horizontal case, we can denote the left-hand side of equation (\ref{eq2}) by $V(x,t)=T(x,t)$ and rewrite (\ref{eq2})
  as:
 
@@ -228,8 +228,8 @@ where $c^2=\frac{T}{\rho}$. We can easily verify that $c$ has the dimensions of
 velocity, as the tension $T$ is a force and $\rho$ is mass divided by length.
 
 \subsection{Two-Dimensions} \label{twodim}
-In the previous section we looked at how to model a musical instrument string and we obtained the wave equation in 
-one-dimension, (\ref{wave}). In this section we will see what physical arguments we need in order to derive the second order wave equation.
+In the previous section we looked at how to model a musical instrument string, and we obtained the wave equation in 
+one-dimension, (\ref{wave}). In this section, we will see what arguments we need to derive the second order wave equation.
 In two-dimensions, the elastic string is now an elastic, flexible and homogeneous drumhead. Similarly to the string we looked at previously, 
 the drumhead has vertical displacement only, i.e. there is no horizontal movement. Furthermore, the area of the membrane we act on is small
 compared to the entire drumhead, and all angles of inclination are small, see \cite{Kr}.
@@ -242,16 +242,16 @@ compared to the entire drumhead, and all angles of inclination are small, see \c
 \end{figure}
 
 Using \emph{Newton's Second Law}, as before, we obtain that the horizontal components of the tension $T$ are constant and independent of $x$.
-Deflections of the membrane and of angles are small, so the sides of the portions are small and approximately equal to $\Delta x$ and $\Delta y$, 
-as shown in Figure \ref{fig:2}. The tension forces $T$ are acting on the sides of the portion so it is approximately equal to $T\Delta x$ and $T\Delta y$, 
-respectively. The forces are tangent to the membrane at all times as the membrane is perfectly flexible.
+Deflections of the membrane and angles are small, so the sides of the portions are small and approximately equal to $\Delta x$ and $\Delta y$, 
+as shown in Figure \ref{fig:2}. The tension forces $T$ are acting on the sides of the portion, so it is approximately equal to $T\Delta x$ and $T\Delta y$, 
+respectively. The forces are tangent to the membrane at all times as the membrane is entirely flexible.
 \\
 
-We will ignore horizontal movement completly as, like in the one dimensional case, the components are obtained by multiplining the cosines of 
+We will ignore horizontal movement entirely as, like in the one-dimensional case, the components are obtained by multiplying the cosines of 
 the angles by the forces. The angles are very small, so we can assume that the cosine values are approximately 1 and the horizontal 
 components of the forces at opposite ends of the membrane are approximately equal. This means that the motion is very small and we can ignore it.
 
-The vertical movement is however, more important than the horizontal one. From Figure \ref{fig:2} we can see that we have four different components of force.
+The vertical movement is, however, more important than the horizontal one. From Figure \ref{fig:2} we can see that we have four different components of force.
 Firstly, we have the components along the left and right sides given by $T\Delta y \sin\beta$ and $-T\Delta y\sin\alpha$, respectively. As the 
 angles are very small, we can replace the sines by tangents, as in \cite{Kr}:
 
@@ -271,7 +271,7 @@ where $x_1, x_2 \in(x, x+\Delta x)$.
 \\
 
 \emph{Newton's Second Law} with $\rho$ as the mass of undeflected membrane per unit area and $\Delta A=\Delta x\Delta y$ as the area of the portion
-of membrane when undeflected, gives the partial differential equation governing this motion:
+of the membrane when undeflected, gives the partial differential equation governing this motion:
 
 \begin{equation} \label{eq11}
     \begin{split}
@@ -295,20 +295,20 @@ respect to $x$ and $y$ respectively, and so we obtain the formula for the wave e
 where, as before, $c^2=\frac{T}{\rho}$. The wave equation in two-dimensions (\ref{wave2deq13}) can also be written as $u_{tt}=c^2\Delta u$, 
 where $\Delta u=u_{xx}+u_{yy}$ is the \emph{Laplacian} of $u$ in two dimensions.
 
-\subsection{The 3-dimensional Wave Equation}
+\subsection{Three Dimensions}
 We can continue with similar arguments to derive the formula for the three-dimensional wave equation:
 
 \begin {equation} \label{wave3deq14}
     u_{tt}=c^2(u_{xx}+u_{yy}+u_{zz}).
 \end{equation}
 
-This governs a number of physical processes and phenomenae, such as the vibration of an elastic solid, 
+This equation governs many physical processes and phenomena, such as the vibration of an elastic solid, 
 sound waves in air, seismic waves propagating through the Earth, linearised supersonic airflow and electromagnetic waves such as light and radar, see
 \cite{Str}
 
 \section{Solution in One-Dimension}
-In this section we will prove the D'Alambert solution to the one-dimensional wave equation (\ref{wave}) 
-in absence of boundary conditions. The problem we wish to solve is as follows:
+In this section, we will prove the D'Alambert solution to the one-dimensional wave equation (\ref{wave}) 
+in the absence of boundary conditions. The problem we wish to solve is as follows:
 
 \begin{equation} \label{ivp1d}
     \begin{aligned}
@@ -318,7 +318,7 @@ in absence of boundary conditions. The problem we wish to solve is as follows:
     \end{aligned}
 \end{equation}
 
-\subsection{General Form of Solution}
+\subsection{General Form}
 
 We first begin by showing that the solution has the form $u(x, t)=\phi(\xi)+\psi(\eta)$, where $\xi=x+ct$ and $\eta=x-ct$. This is quite straightforward
 as the operator factorises nicely:
@@ -341,7 +341,7 @@ We now have two first-order advection (or in some books, transport) equations:
 \end{align}
 
 We will first focus on solving (\ref{veq}) using the method of characteristics, a mathematical technique that allows us to transform a partial differential
-equation into a simple system of ordinary differential equation, see \cite{Ev}. The equation (\ref{veq}) is a homogeneous (the right-hand side equals $0$) 
+equation into a simple system of ordinary differential equation, see \cite{Ev}. The equation (\ref{veq}) is a homogeneous
 advection equation. Consider $v(x(t),t)$ to be the value of $v$ at time $t$ and position $x(t)$. Then we can use the chain rule to differentiate
 $v$ with respect to time:
 
@@ -408,7 +408,7 @@ Therefore, the general solution to the one dimensional wave equation (\ref{ivp1d
     u(x, t)=\phi(\xi)+\psi(\eta), \quad \textrm{where} \quad \xi=x+ct \quad \textrm{and} \quad \eta=x-ct.
 \end{equation}
 
-\subsection{Solution of the Initial Value Problem}
+\subsection{Initial Value Problem}
 We now have the general form (\ref{gensol}) of the solution to the one-dimensional wave equation from (\ref{ivp1d}). In this section, we will use it to derive the solution to
 the full initial value problem from (\ref{ivp1d}), where the initial values are $u(x,0)=g(x)$ and $u_t(x,0)=h(x)$. First, set $t=0$ in (\ref{gensol}). This gives:
 
@@ -531,14 +531,14 @@ Recalling the definitions of $\tilde{u}, \tilde{g}$ and $\tilde{h}$ gives us the
     \end{cases}
 \end{equation}
 
-We will use the solution (\ref{bvpsol}) to the boundary value wave equation (\ref{bvp1d}) to solve the three dimensional wave equation in 
+We will use the solution (\ref{bvpsol}) to the boundary value wave equation (\ref{bvp1d}) to solve the three-dimensional wave equation in 
 the next section. Note that if $h \equiv 0$, then (\ref{bvpsol}) can be understood as a split in the initial displacement, one moving
 to the right, and one to the left, see \cite{Ev}. Furthermore, this solution does not belong to $C^2$, the set of twice differentiable functions, 
 unless $g''(0)=0$.
 
 \section{Solution in Three-Dimensions}
-In this section we will prove the solution to the three-dimensional wave equation (\ref{wave3deq14}). In order to do this we will use \emph{spherical
-means}, which allow us to transform the partial differential equation into an integral over a sphere of radius $r$, centered at some point $\boldsymbol{x}$. 
+In this section, we will prove the solution to the three-dimensional wave equation (\ref{wave3deq14}), as described in \cite[Chap. 2.4]{Ev}. To do this, we will use \emph{spherical
+means}, which allow us to transform the partial differential equation into an integral over a sphere of radius $r$, centred at some point $\boldsymbol{x}$. 
 Some advantages to using an integral form are that we obtain the solution on the whole domain and that we automatically take into account any
 boundary conditions. For more information on spherical means, please see \cite{Sab}. 
 \\
@@ -554,12 +554,12 @@ The problem we wish to solve is
 \end{aligned}
 \end{equation}
 
-We intend, in this section, to derive the formula for $u$ in terms of $g$ and $h$. Our plan is to look at the average of $u$ as a
+We intend, in this section, to derive the formula for $u$ in terms of $g$ and $h$. We plan to look at the average of $u$ as a
 function of the time and radius over certain spheres, and apply the D'Alambert formula (\ref{bvpsol}) from Section \ref{anapplication}.
 Note that throughout the next sections, we will let $\boldsymbol{x}=(x,y,z)$.
 
 \subsection{Some Prerequisite Results} \label{prereq}
-As we proceed with our proof of the three dimensional wave equation, we require some other results, which we will not prove.
+As we proceed with our proof of the three-dimensional wave equation, we require some other results, which we will not prove.
 \\
 
 Firstly, we introduce some notation to simplify our work in the upcoming sections. If we let $\boldsymbol{x}\in \mathbb{R}^n, t>0, r>0$, then we have:
@@ -686,22 +686,22 @@ three dimensional wave equation:
     \end{aligned}
 \end{equation*}
 
-where $D$ represents the first-order derivative with respect to time. Substituting this into (\ref{almostK}), we obtain the solution to the three dimensional wave equation, which is known as \emph{Kirchhoff's formula}, but is 
-actually due to Poisson, see \cite{Str}:
+where $D$ represents the first-order derivative with respect to time. Substituting this into (\ref{almostK}), we obtain the solution to the three-dimensional wave equation, which is known as \emph{Kirchhoff's formula}, but is 
+actually, due to Poisson, see \cite{Str}:
 
 \begin{equation} \label{KircE}
     u(\boldsymbol{x},t)=\dashint_{\partial B(\boldsymbol{x},t)} th(\boldsymbol{y})+Dg(\boldsymbol{y})\Big(\frac{\boldsymbol{y}-\boldsymbol{x}}{t}\Big)+g(\boldsymbol{y})dS(\boldsymbol{y}).
 \end{equation}
 
 \subsection{Another Formula}
-\emph{Strauss}, in \cite{Str} gives another form of Kirchhoff's formula for the solution to the wave equation in three-dimensions. In this section we aim to prove that 
+\emph{Strauss}, in \cite{Str} gives another form of Kirchhoff's formula for the solution to the wave equation in three-dimensions. In this section, we aim to prove that 
 this formula is the same as the one we have seen in (\ref{KircE}). The formulation mentioned in \cite{Str} is as follows, where $\boldsymbol{x}=(x,y,z)$, as before:
 
 \begin{equation} \label{KircSTR}
     u_S(\boldsymbol{x}, t)=\frac{1}{4 \pi c^2 t}\iint_{\partial B(\boldsymbol{x}, t)} h(\boldsymbol{y}dS(\boldsymbol{y}))+\diffp[1]{}{t}\Big( \frac{1}{4 \pi c^2 t}\iint_{\partial B(\boldsymbol{x}, t)} g(\boldsymbol{y})dS(\boldsymbol{y})\Big).
 \end{equation}
 
-For easier identification of the two formulae by different authors, we will rewrite (\ref{KircE}): 
+For a more comfortable identification of the two formulae by different authors, we will rewrite (\ref{KircE}): 
 
 \begin{equation} \label{KircEV}
     u_E(\boldsymbol{x},t)=\dashint_{\partial B(\boldsymbol{x},t)} th(\boldsymbol{y})+Dg(\boldsymbol{y})\Big(\frac{\boldsymbol{y}-\boldsymbol{x}}{t}\Big)+g(\boldsymbol{y})dS(\boldsymbol{y}).
@@ -728,7 +728,7 @@ Our aim is to show that $u_S$ and $u_E$ are the same. We start by letting $g=0$ 
     \end{aligned}
 \end{equation}
 
-This shows that the first parts of the two formulae are the same. Next, we show that the second parts are the same by letting $h=0$:
+This computation shows that the first parts of the two formulae are the same. Next, we show that the second parts are the same by letting $h=0$:
 
 \begin{equation} \label{starr}
     \begin{aligned}
@@ -740,8 +740,8 @@ This shows that the first parts of the two formulae are the same. Next, we show 
 
 Using the transformation of surface integrals described in section \ref{prereq}, we obtain that $\dashint_{\partial B(\boldsymbol{x}, t)}g(\boldsymbol{y})dS(\boldsymbol{y})=\dashint_{\partial B(\boldsymbol{0}, 1)}g(\boldsymbol{x}+t\boldsymbol{z})dS(\boldsymbol{z})$. 
 This means that (\label{starr}) becomes:
-
-\begin{equation} \label{h=0}
+ 
+\begin{equation} \label{h=0} 
     \begin{aligned}
         u_S(\boldsymbol{x}, t)&=\diffp[1]{}{t}t\Big(\dashint_{\partial B(\boldsymbol{0}, 1)}g(\boldsymbol{x}+t\boldsymbol{z})dS(\boldsymbol{z})\Big)\\
         &=\dashint_{\partial B(\boldsymbol{0}, 1)}g(\boldsymbol{x}+t\boldsymbol{z})dS(\boldsymbol{z})+t\diffp[1]{}{t}\dashint_{\partial B(\boldsymbol{0}, 1)}g(\boldsymbol{x}+t\boldsymbol{z})dS(\boldsymbol{z})\\
@@ -755,26 +755,26 @@ This means that (\label{starr}) becomes:
 Since in both (\ref{g=0}) and (\ref{h=0}) we showed that $u_S=u_E$, then we can conclude that the two solutions to the three-dimensional wave equation are the same.
 
 \section{Solution in Two-Dimensions}
-In this section we will present the solution to the two-dimensional wave equation derived in \ref{twodim}. Before we prove the solution, we will discuss \emph{Huygens' 
-Principle} and explain why we solved the three dimensional equation first.
+In this section, we will present the solution to the two-dimensional wave equation derived in \ref{twodim}. Before we prove the solution, we will discuss \emph{Huygens' 
+Principle} and explain why we solved the three-dimensional equation first.
 
 \subsection{Huygens' Principle}
 \emph{Huygens' Principle} describes how we can physically hear sharp sounds and see sharp images. \emph{Folland}, in \cite{Fol}, gives a very simple example to illustrate 
-this. If we are in a dark room at a position $x_0$ that doesn't change, and we set off a flash light at the origin of the three dimensional system we 
+this. If we are in a dark room at a position $x_0$ that doesn't change, and we set off a flash light at the origin of the three-dimensional system we 
 created from the room, at time $t=0$, then we will be able to see the light only for as long as it takes it to travel from its position to where we are, the room
 becoming dark again after. Another simple example to illustrate \emph{Huygens' Principle} is given by \emph{Strauss} in \cite{Str}, where he looks at how the sound
-from a musical instrument is heard by the human ear. Sound is carried through air at precisesly the fixed speed $c$ without any disturbance by assuming
+of a musical instrument is heard by the human ear. Sound is carried through air at precisely the fixed speed $c$ without any disturbance by assuming
 there are no walls or other inhomogeneities in the air, so that at any time $t$, the listener hears exactly what notes the musical instrument plays at the time $t-\frac{d}{c}$,
 where $d$ is the distance between the listener and the instrument, rather than hearing a mixture of notes from earlier echoing over the new notes. These three-dimensional 
-examples show phenomenae that are known as \emph{Huygens' Principle}, which asserts that an initial state is observed at a different place as an effect that is 
+examples show phenomena that are known as \emph{Huygens' Principle}, which asserts that an initial state is observed at a different place as an effect that is 
 very rigorously delimited, see \cite{Hil} .
 \\
 
-This physical phenomenon makes sense in three dimensions and it is encountered in everyday life. However, we might be interested in what happens if a two-dimensional system would follow
+This physical phenomenon makes sense in three-dimensions, and it is encountered in everyday life. However, we might be interested in what happens if a two-dimensional system would follow
 the same rules. This does not make sense, and an example to show this comes from dropping a pebble into an undisturbed pond. The waves that are created by the pebble satisfy 
 approximately well the two-dimensional wave equation with a certain speed $c$, where $x$ and $y$ are horizontal coordinates of the 2D plane. If we assume there exists
 a waterbug without any movement, at a distance $d$ from the point of impact between the pebble and the water, it will feel a wave at time $t=\frac{d}{c}$, but that wave will
-not stop upon reaching the waterbug, but continue to send out waves. Those secondary waves become so small that they are no longer felt after a period of time, but they 
+not stop upon reaching the waterbug but continue to send out waves. Those secondary waves become so small that they are no longer felt after a period of time, but they 
 do not actually ever stop, as described in \cite{Str}. This means that \emph{Huygens' Principle} no longer holds. This is because the time does not limit the initial state is not limited 
 in time, i.e. once a signal reaches a point in the two-dimensional space, it continues there indefinitely. More details about the physical interpretations can be found in \cite{Hil}.
 \\
@@ -786,8 +786,8 @@ next section.
 
 \subsection{Poisson's Formula}
 
-In this section we will prove the solution to the two-dimensional wave equation. We cannot transform the \emph{Euler-Poisson-Darboux equation} (\ref{EPDeq}) using (\ref{Udash}) and (\ref{GHdash}) 
-into the one-dimensional equation when $n=2$. This is why we do not have a specific method to solving the two-dimensional problem other that considering it as the previously solved three-dimensional problem
+In this section, we will prove the solution to the two-dimensional wave equation. We cannot transform the \emph{Euler-Poisson-Darboux equation} (\ref{EPDeq}) using (\ref{Udash}) and (\ref{GHdash}) 
+into the one-dimensional equation when $n=2$. This is why we do not have a specific method to solving the two-dimensional problem other than considering it as the previously solved three-dimensional problem
 with the third spatial coordinate equal to $0$. Let $u \in C^2(\mathbb{R}^2 \times [0, \infty))$ solve the wave equation in two-dimensions:
 
 \begin{equation} \label{2d}
@@ -864,7 +864,7 @@ Hence, (\ref{star}) is:
     \end{split}
 \end{equation}
 
-Using a similar transformation to the one described in section \ref{prereq}, we get that $t^2\dashint_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2})}d\boldsymbol{y}=t\dashint_{B(0,1)}\frac{g(\boldsymbol{x}+t\boldsymbol{z})}{(1-|\boldsymbol{z}|^2)^{1/2}}d\boldsymbol{y}$. 
+Using a similar transformation to the one described in section \ref{prereq}, we get that $t^2\dashint_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2})}d\boldsymbol{y}$ is equal to  $t\dashint_{B(0,1)}\frac{g(\boldsymbol{x}+t\boldsymbol{z})}{(1-|\boldsymbol{z}|^2)^{1/2}}d\boldsymbol{y}$. 
 Therefore, the first part of (\ref{triangle}) can be written as:
 
 \begin{equation*}
@@ -888,17 +888,9 @@ We can now rewrite $u(\boldsymbol{x},t)$ from (\ref{triangle}) in the form of th
 
 \section{Conclusion}
 
-\begin{thebibliography}{alpha}
-\bibitem[Boy]{BoyDiP} Boyce and Di Prima 
-\bibitem[Kre]{Kr} Kreyszig, Advanced Engeneering Methods
-\bibitem[Tay]{Tay} John R. Taylor, Classical Mechanics
-\bibitem[Spi]{Spi} Michael Spivak, Calculus (around pg 150-160)
-\bibitem[Str]{Str} Strauss, Partial Differential Equations: An Introduction
-\bibitem[Ev]{Ev} Evans, Partial Differential Equations
-\bibitem[Sab]{Sab} Sabelfeld, Spherical Means for PDEs
-\bibitem[Loom]{LooSter} Lynn Loomis, Shlomo Sternberg, Advanced Calculus
-\bibitem[Fol]{Fol} Folland, Introduction to PDEs
-\bibitem[Hil]{Hil} Courant and Hilbert, Methods of Mathematical Physics
-\bibitem[Coc]{Coc} Rich Cochrane, The Secret Life of Equations
-\end{thebibliography} 
+\newpage 
+
+\bibliographystyle{unsrt}
+\bibliography{bibliography}
+
 \end{document}
