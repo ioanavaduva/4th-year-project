@@ -874,9 +874,9 @@ Therefore, the first part of (\ref{triangle}) can be written as:
 
 We can now rewrite $u(\boldsymbol{x},t)$ from (\ref{triangle}) in the form of the solution of the two-dimensional wave equation, also known as Poisson's formula, see \cite{Ev}.
  
-\begin{equation*}
+\begin{equation} \label{poiss}
     u(\boldsymbol{x},t)=\frac{1}{2}\dashint_{B(\boldsymbol{x},t)} \frac{tg(\boldsymbol{y})+t^2h(\boldsymbol{y})+tDg(\boldsymbol{y})\cdot (\boldsymbol{y}-\boldsymbol{x})}{t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}.
-\end{equation*}
+\end{equation}
 
 \section{Solutions in Higher Dimensions}
 
@@ -1013,6 +1013,35 @@ Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write $\check{\boldsymbol{x}}=
  $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}=\frac{2}{(n+1)\alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}g(\boldsymbol{y})(1+|D\gamma(\boldsymbol{y})|^2)^{1/2}d\boldsymbol{y}$.
  As in the two-dimensional case, the $2$ in the fraction comes from the fact that we work with two hemisphere. As before, $(1+|D\gamma (\boldsymbol{y})|^2)^{1/2}=t(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{-1/2}$. Substituting this 
  into the expression for $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}$, we get:
+
+ \begin{equation*}
+    \begin{aligned}
+        dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}&=\frac{2}{(n+1)\alpha(n+1)t^{n-1}}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}\\
+        &=\frac{2+\alpha(n)}{(n+1)\alpha(n+1)}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d \boldsymbol{y}
+    \end{aligned}
+\end{equation*}
+
+We obtain a similar formula with $h$ in the place of $g$, and replacing into (\ref{solneven}) we obtain:
+
+\begin{equation*}
+    \begin{split}
+        u(\boldsymbol{x}, t)= \frac{1}{\gamma_{n+1}} \frac{2 \alpha(n)}{(n+1) \alpha (n+1)}&\Big[ \diffp[1]{}{t} \Big(\frac{1}{t} \Big)^{\frac{n-2}{2}} \Big(t^n \dashint_{B(\boldsymbol{x}, t)} \frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big)\\ 
+        & +\Big(\frac{1}{t} \diffp[1]{}{t}\Big)^{\frac{n-2}{2}} \Big(t^n \dashint_{B(\boldsymbol{x},t)} \frac{h(\boldsymbol{y}}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big) \Big].
+    \end{split}
+\end{equation*}
+
+Since $\gamma_{n+1}=1 \cdot 3 \cdot ... \cdot (n-1)$ and $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$, then $\gamma_n=2 \cdot 4 \cdot ... \cdot(n-2) \cdot n$. 
+Hence, we obtain the general solution in even dimensions:
+
+\begin{equation} \label{solnev}
+    \begin{split}
+        u(\boldsymbol{x}, t)= \frac{1}{\gamma_n} &\Big[ \Big(\diffp[1]{}{t}\Big) \Big(\frac{1}{t} \diffp[1]{}{t}\Big)^{\frac{n-2}{2}}\Big(t^n \dashint_{B(\boldsymbol{x}, t)} \frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big)\\
+        &\Big(\frac{1}{t} \diffp[1]{}{t}\Big)^{\frac{n-2}{2}}\Big(t^n \dashint_{B(\boldsymbol{x},t)} \frac{h(\boldsymbol{y}}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big) \Big],
+    \end{split}
+\end{equation}
+
+where $n$ is even, $\gamma_n=2 \cdot 4 \cdot ... \cdot(n-2) \cdot n$, $\boldsymbol{x}\in \mathbb{R}^n$ and $t>0$. Note that for $n=2$, $\gamma_2 = 2$ and (\ref{solnev}) agrees with 
+\emph{Poisson's formula} (\ref{poiss}) for the two-dimensional solution of the wave equation. Hence, (\ref{solnev}) is a general formula for the even-dimenstional problem.
 
 
 \subsection{Uniqueness of Solutions}
