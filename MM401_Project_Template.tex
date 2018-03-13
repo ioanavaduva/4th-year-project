@@ -976,7 +976,39 @@ Continuing with our proof of the high-dimensional wave equations as presented in
 solves the even-dimensional wave equation is $u \in C^m$ (m times continuously differentiable), where $m=\frac{n+2}{2}$. The trick is the same as in the solution of the 
 two-dimensional problem: we consider the odd-dimensional problem and descend into the even dimension through the method of descent. As before, let:
 
- 
+\begin{equation} \label{dot}
+    \begin{aligned}
+        &\check{u}(x_1, x_2, ..., x_{n+1}, t):=u(x_1, x_2, ..., x_n, t) \quad \textrm{with} \quad x_1, x_2, ..., x_{n+1} \in \mathbb{R}, \quad t \in [0, \infty)\\
+        &\check{u}(x_1, x_2, ..., x_{n+1}, 0)=\check{g}(x_1, x_2, ..., x_{n+1})\\
+        &\check{u}_t(x_1, x_2, ..., x_{n+1}, 0)=\check{h}(x_1, x_2, ..., x_{n+1}),
+    \end{aligned}
+\end{equation}
+
+where 
+
+\begin{equation} \label{ddot}
+    \begin{aligned}
+        &\check{g}(x_1, x_2, ..., x_{n+1}):=g(x_1, x_2, ..., x_n)\\
+        &\check{h}(x_1, x_2, ..., x_{n+1}):=h(x_1, x_2, ..., x_n).
+    \end{aligned}
+\end{equation}
+
+Since $n$ is even, then $n+1$ is odd, and so we can use (\ref{solnodd}) with $n+1$ in the place of $n$ in order to secure a formula for $\check{u}$ 
+in terms of $\check{g}$ and $\check{h}$. Then (\ref{dot}) and (\ref{ddot}) will immediately hold a formula for $u$ in terms of $g$ and $h$.
+\\
+
+Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write $\check{\boldsymbol{x}}=(x_1, x_2, ..., x_n, 0) \in \mathbb{R}^{n+1}$. Then, replacing $n$ with $n+1$ in 
+(\ref{solnodd}) becomes:
+
+\begin{equation} \label{solneven}
+    \begin{split}
+        u(\boldsymbol{x}, t)=\frac{1}{\gamma_{n+1}}\Big[\Big(\diffp[1]{}{t}\Big) & \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{g}d\check{S} \Big)\\
+        &+ \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{h}d\check{S} \Big)\Big],
+    \end{split}
+\end{equation} 
+
+ where $\partial \check{B}(\boldsymbol{\check{x}},t)$ is the sphere in $\mathbb{R}^{n+1}$ centered at $\boldsymbol{\check{x}}$ and of radius $t$, and 
+ $d\check{S}$ is the n-dimensional surface measure on $\partial \check{B}(\boldsymbol{\check{x}},t)$.
 
 \subsection{Uniqueness of Solutions}
 
