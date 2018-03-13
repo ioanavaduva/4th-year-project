@@ -1008,7 +1008,12 @@ Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write $\check{\boldsymbol{x}}=
 \end{equation} 
 
  where $\partial \check{B}(\boldsymbol{\check{x}},t)$ is the sphere in $\mathbb{R}^{n+1}$ centered at $\boldsymbol{\check{x}}$ and of radius $t$, and 
- $d\check{S}$ is the n-dimensional surface measure on $\partial \check{B}(\boldsymbol{\check{x}},t)$.
+ $d\check{S}$ is the n-dimensional surface measure on $\partial \check{B}(\boldsymbol{\check{x}},t)$. Let $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$ and 
+ consider $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}=\frac{1}{(n+1)\alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}\check{g}d\check{S}$. Then
+ $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}=\frac{2}{(n+1)\alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}g(\boldsymbol{y})(1+|D\gamma(\boldsymbol{y})|^2)^{1/2}d\boldsymbol{y}$.
+ As in the two-dimensional case, the $2$ in the fraction comes from the fact that we work with two hemisphere. As before, $(1+|D\gamma (\boldsymbol{y})|^2)^{1/2}=t(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{-1/2}$. Substituting this 
+ into the expression for $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}$, we get:
+
 
 \subsection{Uniqueness of Solutions}
 
