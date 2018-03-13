@@ -1,4 +1,4 @@
-\documentclass[a4paper, 12pt]{article} 
+\documentclass[a4paper, 12pt]{article}
 \setlength{\textheight}{24.0cm}
 \setlength{\textwidth}{16cm}
 \setlength{\parindent}{0.0cm}
@@ -97,7 +97,7 @@
     \normalsize
     \tableofcontents
     \newpage
-    
+
 \section{Introduction}
 This project presents the wave equation and its solution in one, two, three and higher dimensions. The wave equation is a partial differential equation (PDE), an identity
 that relates independent variables ($x, y...$), the dependent variable $u$ (a function of the independent variables) and the partial derivatives of $u$. The wave 
@@ -132,7 +132,7 @@ in the vertical direction, see \cite{Kr}. Let $u(x,t)$ be the vertical displacem
 $T(x,t)$ - the tension in the string that acts only in the direction tangent to the string, and $\rho$ the 
 mass per unit length of the string. 
 
-\begin{figure}[h]
+\begin{figure}[h] 
     \begin{subfigure}[t]{0.5\textwidth} 
         \includegraphics[width=0.9\linewidth]{images/grafic-1.png} 
         \caption{String of length L}
@@ -536,7 +536,7 @@ the next section. Note that if $h \equiv 0$, then (\ref{bvpsol}) can be understo
 to the right, and one to the left, see \cite{Ev}. Furthermore, this solution does not belong to $C^2$, the set of twice differentiable functions, 
 unless $g''(0)=0$.
 
-\section{Solution in Three-Dimensions}
+\section{Solution in Three-Dimensions} \label{sec3d}
 In this section, we will prove the solution to the three-dimensional wave equation (\ref{wave3deq14}), as described in \cite[Chap. 2.4]{Ev}. To do this, we will use \emph{spherical
 means}, which allow us to transform the partial differential equation into an integral over a sphere of radius $r$, centred at some point $\boldsymbol{x}$. 
 Some advantages to using an integral form are that we obtain the solution on the whole domain and that we automatically take into account any
@@ -627,8 +627,6 @@ We now want to derive the formula for the solution to the wave equation in three
 \end{equation}
 
 where $U,G$ and $H$ are defined as in (\ref{averageU}) and (\ref{averageGH}), respectively. 
-\\
-\\
 \\
 
 Using this notation and the \emph{Euler-Poisson-Darboux equation} we can
@@ -754,7 +752,7 @@ This means that (\label{starr}) becomes:
 
 Since in both (\ref{g=0}) and (\ref{h=0}) we showed that $u_S=u_E$, then we can conclude that the two solutions to the three-dimensional wave equation are the same.
 
-\section{Solution in Two-Dimensions}
+\section{Solution in Two-Dimensions} \label{sec2d}
 In this section, we will present the solution to the two-dimensional wave equation derived in \ref{twodim}. Before we prove the solution, we will discuss \emph{Huygens' 
 Principle} and explain why we solved the three-dimensional equation first.
 
@@ -882,8 +880,104 @@ We can now rewrite $u(\boldsymbol{x},t)$ from (\ref{triangle}) in the form of th
 
 \section{Solutions in Higher Dimensions}
 
+In this section, we will generalise the results obtained in sections \ref{sec3d} and \ref{sec2d} to higher odd and even dimensions. We separate between odd and even as 
+in order to derive the even-dimensional general solution, we require the odd-dimensional one.
+
 \subsection{Odd Dimensions}
+
+In our derivation of the general odd-dimensional solution to the wave equation, we will follow the method described in \cite{Ev}. First, we require some technical 
+results. We will not prove them, but more information can be found in \cite[Lemma 2]{Ev}. Let $\phi:\mathbb{R} \to \mathbb{R}$ be $C^{k+1}$ ($k+1$ continuously differentiable), 
+then for $k=1, 2, ...$:
+
+\begin{align}
+    &\Big(\diff[2]{}{r}\Big)\Big( \frac{1}{r} \diff{}{r}\Big)^{k-1}(r^{2k-1}\phi(r))=\Big( \frac{1}{r} \diff{}{r}\Big)^k \Big(r^{2k} \diff{\phi}{r}(r) \Big); \label{i} \\
+    &\Big( \frac{1}{r} \diff{}{r}\Big)^{k-1}(r^{2k-1}\phi(r))=\sum^{k-1}_{j=0} \beta_{j}^{k} r^{j+1} \diff[j]{\phi}{r}(r), \label{ii} \\
+    & \textrm{where} \quad \beta_{j}^{k} \quad (j=0,1,...,k-1) \quad \textrm{are inependent of $\phi$}; \notag \\
+    & \beta_{0}^{k}=1 \cdot 3 \cdot 5 \cdot ... \cdot (2k-1). \label{iii}
+\end{align}
+
+Assume that $n \ge 3$ is an odd integer such that $n=2k+1$ with $k \ge 1$. Also suppose that $u(\boldsymbol{x},t) \in C^{k+1}(\mathbb{R}^n \times [0, \infty))$ solves the 
+n-dimensional wave equation:
+
+\begin{equation} \label{ndimeq}
+    \begin{aligned}
+        &u_{tt}-c^2\Delta u =0, \quad \textrm{with} \quad \boldsymbol{x} \in \mathbb{R}^n, \quad t \in [0, \infty)\\
+        &u(\boldsymbol{x}, 0)=g(\boldsymbol{x})\\
+        &u_t(\boldsymbol{x},0)=h(\boldsymbol{x}).
+    \end{aligned}
+\end{equation} 
+
+Hence, $U$, as defined in (\ref{averageU}) is $k+1$ continuously differentiable ($C^{k+1}$). So, using the definitions in (\ref{averageU}) and (\ref{averageGH}), we 
+introduce the following notation:
+
+\begin{equation} \label{ndimUGH}
+    \begin{aligned}
+        &\hat{U}(r,t)=\Big(\frac{1}{r} \diffp[1]{}{r} \Big)^{k-1} (r^{2k-1}U(\boldsymbol{x};r,t))\\
+        &\hat{G}(r)=\Big(\frac{1}{r} \diffp[1]{}{r} \Big)^{k-1} (r^{2k-1}G(\boldsymbol{x};r,t))\\
+        &\hat{H}(r)=\Big(\frac{1}{r} \diffp[1]{}{r} \Big)^{k-1} (r^{2k-1}H(\boldsymbol{x};r,t)),
+    \end{aligned}
+\end{equation}
+
+with $r>0$ and $t \ge 0$. Note that at $t=0$, $\hat{U}(r,0)=\hat{G}(r)$ and $\hat{U}_t(r,0)=H(r)$. Combining the \emph{Euler-Poisson-Darboux equation} (\ref{EPDeq}) with 
+(\ref{i}), (\ref{ii}) and (\ref{iii}), we will show that (\ref{ndimUGH}) transforms the \emph{Euler-Poisson-Darboux equation} into the wave equation solved in section \ref{anapplication}, (\ref{bvp1d}).
+We will first show that $\hat{U}$ satisfies (\ref{bvp1d}) for $r>0$:
+
+\begin{equation*}
+    \begin{aligned}
+        c^2\hat{U}_{rr}&=c^2\Big(\diffp[2]{}{r}\Big)\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U)\\
+        &=c^2\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^k(r^{2k}U_r)\\
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^k(c^2r^{2k}U_r)\\
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(c^2r^{2k-1}U_{rr}+2kc^2r^{2k-2}U_r)\\
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}[r^{2k-1}(c^2U_{rr}+c^2\frac{n-1}{r}U_r)], \quad \textrm{where} \quad n=2k+1\\
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U_{tt}), \quad \textrm{from (\ref{EPDeq})}\\
+        &=\hat{U}_{tt}.
+    \end{aligned}
+\end{equation*}
+
+We solved (\ref{bvp1d}) in section \ref{anapplication} and the solution is given by: 
+\begin{equation}\label{nomorelabels}
+    \hat{U}(r,t)=\frac{1}{2}[\hat{G}(r+ct)-\hat{G}(ct-r)]+\frac{1}{2}\int_{ct-r}^{r+ct}\hat{H}(y)dy,
+\end{equation}
+
+for all $r\in\mathbb{R}, t \ge 0$. Recall that $u(\boldsymbol{x},t)=\lim_{x \rightarrow 0} U(\boldsymbol{x}; r, t)$.
+
+Hence, by (\ref{ii}), we have:
+
+\begin{equation*}
+    \begin{aligned}
+        \hat{U}(r,t)&=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U(\boldsymbol{x};r,t))\\
+        &=\sum_{j=0}^{k-1}\beta_j^k r^{j+1} \diffp[j]{}{r}U(\boldsymbol{x};r,t)
+    \end{aligned}
+\end{equation*}
+
+Therefore, $\lim_{r \rightarrow 0} \frac{\hat{U}}{\beta_0^k r}=\lim_{r \rightarrow 0} U(\boldsymbol{x}; r, t)=u(\boldsymbol{x}, t)$, and so, by (\ref{nomorelabels}) we get:
+
+\begin{equation*}
+    \begin{aligned}
+        u(\boldsymbol{x}, t)&=\frac{1}{\beta_0^k} \lim_{r \rightarrow 0}\Big[\frac{\hat{G}(ct+r)-\hat{G}(ct-r)}{2r} + \frac{1}{2r}\int_{ct-r}^{ct+r} \hat{H}(y)dy\Big]\\
+        &= \frac{1}{\beta_0^k}[\hat{G}'(t)+\hat{H}(t)].
+    \end{aligned}
+\end{equation*}
+
+Hence, since $n=2k+1$, (\ref{nomorelabels}) and (\ref{iii}) imply the representation formula:
+
+\begin{equation} \label{solnodd}
+    \begin{split}
+        u(\boldsymbol{x}, t)=\frac{1}{\gamma_n}\Big[\Big(\diffp[1]{}{t}\Big) & \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-3}{2}}\Big(t^{n-2} \dashint_{\partial B(\boldsymbol{x},t)}gdS \Big)\\
+        &+ \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-3}{2}}\Big(t^{n-2} \dashint_{\partial B(\boldsymbol{x},t)}hdS \Big)\Big],
+    \end{split}
+\end{equation} 
+
+where $n$ is odd, $\gamma_n=1 \cdot 3 \cdot ... \cdot (n-2)$ and $\boldsymbol{x}\in \mathbb{R}^n$. Note that for $n=3$, $\gamma_3 = 1$ and (\ref{solnodd}) agrees with 
+\emph{Kirchhoff's formula} (\ref{KircE}) for the three-dimensional solution of the wave equation. Hence, (\ref{solnodd}) is a general formula for the odd-dimenstional problem.
+
 \subsection{Even Dimensions}
+Continuing with our proof of the high-dimensional wave equations as presented in \cite{Ev}, we now assume that $n$ in (\ref{ndimeq}). Suppose that $u$, the function that 
+solves the even-dimensional wave equation is $u \in C^m$ (m times continuously differentiable), where $m=\frac{n+2}{2}$. The trick is the same as in the solution of the 
+two-dimensional problem: we consider the odd-dimensional problem and descend into the even dimension through the method of descent. As before, let:
+
+ 
+
 \subsection{Uniqueness of Solutions}
 
 \section{Conclusion}
@@ -893,4 +987,4 @@ We can now rewrite $u(\boldsymbol{x},t)$ from (\ref{triangle}) in the form of th
 \bibliographystyle{unsrt}
 \bibliography{bibliography}
 
-\end{document}
+\end{document} 
