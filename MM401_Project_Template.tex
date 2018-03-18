@@ -11,6 +11,9 @@
 \usepackage{diffcoeff}
 \usepackage{amssymb}
 \usepackage{subcaption} 
+\usepackage{amsthm}
+% \usepackage[utf8]{inputenc}
+% \usepackage[english]{babel}
 
 % Dash int definitions
 \def\Xint#1{\mathchoice
@@ -99,38 +102,50 @@
     \newpage
 
 \section{Introduction}
-This project presents the wave equation and its solution in one, two, three and higher dimensions. The wave equation is a partial differential equation (PDE), an identity
-that relates independent variables ($x, y...$), the dependent variable $u$ (a function of the independent variables) and the partial derivatives of $u$. The wave 
-equation is a PDE of the second order, given by the highest appearing derivative, see \cite{Fol}.
-\\
+This project presents the wave equation and its solution in one, two, three and
+higher dimensions. The wave equation is a partial differential equation (PDE),
+an identity that relates independent variables ($x, y...$), the dependent
+variable $u$ (a function of the independent variables) and the partial
+derivatives of $u$. The wave equation is a PDE of the second order, given by the
+highest appearing derivative, see \cite{Fol}. \\
 
-A guitar and a violin make different sounds, despite both being played by plucking the string. The wave equation allows an insight into how this happens through an
-accurate model of the vibrating string. Musical instruments are not, however, the  only application of the wave equation, which can model accurately electromagnetic 
-waves, waves in fluids, waves caused by volcanoes and earthquakes and even has a role in quantum mechanics. Historically, it is of importance and many representative 18th century
-mathematicians: D'Alambert, Euler, Lagrange and Bernoulli, to name a few, had contributions to the development, modelling and solving of the wave equation, see \cite{Coc}.
-\\
+A guitar and a violin make different sounds, despite both being played by
+plucking the string. The wave equation allows an insight into how this happens
+through an accurate model of the vibrating string. Musical instruments are not,
+however, the  only application of the wave equation, which can model accurately
+electromagnetic waves, waves in fluids, waves caused by volcanoes and
+earthquakes and even has a role in quantum mechanics. Historically, it is of
+importance and many representative 18th century mathematicians: D'Alambert,
+Euler, Lagrange and Bernoulli, to name a few, had contributions to the
+development, modelling and solving of the wave equation, see \cite{Coc}. \\
 
-In this project, we focus our attention on the general wave equation which works in any number of dimensions. We begin by deriving it from physical principles, and then 
-focus most of our attention on solving the problem in one, three and two dimensions, generalising our result to higher dimensions. We then finish by proving the uniqueness 
-of our solution.
+In this project, we focus our attention on the general wave equation which works
+in any number of dimensions. We begin by deriving it from physical principles,
+and then focus most of our attention on solving the problem in one, three and
+two dimensions, generalising our result to higher dimensions. We then finish by
+proving the uniqueness of our solution.
 
 \section{Derivation of the Wave Equation}
-In this section, we will derive the wave equation in one- and two-dimensions, showing a pattern that 
-we can extend to higher dimensions. Note that the images have been created using \emph{Photoshop}, but their original version comes from \cite{Kr}.
+In this section, we will derive the wave equation in one- and two-dimensions,
+showing a pattern that we can extend to higher dimensions. Note that the images
+have been created using \emph{Photoshop}, but their original version comes from
+\cite{Kr}.
 
 \subsection{One-Dimension}
-The wave equation arises from the movement of a string in a musical instrument, such as a guitar or a violin, see
-\cite{BoyDiP}. This string is perfectly elastic, and
-it is stretched between two supports, at $x=0$ and $x=L$. The elastic string is of length $L$, as
-illustrated in Figure \ref{fig:1a}. At time $t=0$, the string is set into motion and left undisturbed to vibrate in the
-vertical plane. For this derivation of the wave equation, we will simplify things by neglecting damping 
-effects such as air resistance. We will obtain this using the Newtonian
-mechanics of forces on a small part of the string, of length $\Delta x$, which lies between $x$ and 
-$x+\Delta x$. The motion of this piece of string is very small and negligible in the horizontal plane,
-and so we only have movement
-in the vertical direction, see \cite{Kr}. Let $u(x,t)$ be the vertical displacement of point $x$ at the time $t$, 
-$T(x,t)$ - the tension in the string that acts only in the direction tangent to the string, and $\rho$ the 
-mass per unit length of the string. 
+The wave equation arises from the movement of a string in a musical instrument,
+such as a guitar or a violin, see \cite{BoyDiP}. This string is perfectly
+elastic, and it is stretched between two supports, at $x=0$ and $x=L$. The
+elastic string is of length $L$, as illustrated in Figure \ref{fig:1a}. At time
+$t=0$, the string is set into motion and left undisturbed to vibrate in the
+vertical plane. For this derivation of the wave equation, we will simplify
+things by neglecting damping effects such as air resistance. We will obtain this
+using the Newtonian mechanics of forces on a small part of the string, of length
+$\Delta x$, which lies between $x$ and $x+\Delta x$. The motion of this piece of
+string is very small and negligible in the horizontal plane, and so we only have
+movement in the vertical direction, see \cite{Kr}. Let $u(x,t)$ be the vertical
+displacement of point $x$ at the time $t$, $T(x,t)$ - the tension in the string
+that acts only in the direction tangent to the string, and $\rho$ the mass per
+unit length of the string. 
 
 \begin{figure}[h] 
     \begin{subfigure}[t]{0.5\textwidth} 
@@ -147,17 +162,18 @@ mass per unit length of the string.
 \label{fig:1}
 \end{figure}
 
-In \cite{Tay}, \emph{Newton's Second Law} says that ``for any particle of mass $m$, the net force 
-$\boldsymbol{F}$ on the particle is always equal to the mass $m$ times the particle's 
-acceleration: $\boldsymbol{F} = m \boldsymbol{a}$.''  We apply this to our 
-portion of the string $\Delta x$, so that the external
-force, the tension at the ends of the string portion, equals to the product of the mass of the element and 
-its acceleration at the mass centre. 
-\\
+In \cite{Tay}, \emph{Newton's Second Law} says that ``for any particle of mass
+$m$, the net force $\boldsymbol{F}$ on the particle is always equal to the mass
+$m$ times the particle's acceleration: $\boldsymbol{F} = m \boldsymbol{a}$.''
+We apply this to our portion of the string $\Delta x$, so that the external
+force, the tension at the ends of the string portion, equals to the product of
+the mass of the element and its acceleration at the mass centre. \\
 
-Looking at the movement of the section of string, we see that there is no acceleration in the horizontal direction,  
-as this movement is insignificant to the system. Therefore, we obtain the 
-following equation governing the horizontal motion, by adding together the horizontal components of tension from Figure \ref{fig:1b}:
+Looking at the movement of the section of string, we see that there is no
+acceleration in the horizontal direction, as this movement is insignificant to
+the system. Therefore, we obtain the following equation governing the horizontal
+motion, by adding together the horizontal components of tension from Figure
+\ref{fig:1b}:
 
 \begin {equation} \label{eq1}
     T(x+\Delta x,t)\cos{(\theta + \Delta \theta)}-T(x,t)\cos{\theta}=0
@@ -176,16 +192,17 @@ of the displacement with respect to time. Here,
     T(x+\Delta x,t)\sin{(\theta + \Delta \theta)}-T(x,t)\sin{\theta}=\rho\Delta x u_{tt} (\bar{x},t).
  \end{equation}
 
- Usually, the weight of the string would also act vertically downwards, but we neglect it here. Similarly to the 
- horizontal case, we can denote the left-hand side of equation (\ref{eq2}) by $V(x,t)=T(x,t)$ and rewrite (\ref{eq2})
- as:
+ Usually, the weight of the string would also act vertically downwards, but we
+ neglect it here. Similarly to the horizontal case, we can denote the left-hand
+ side of equation (\ref{eq2}) by $V(x,t)=T(x,t)$ and rewrite (\ref{eq2}) as:
 
  \begin{equation} \label{eq3}
     \frac{V(x+\Delta x,t)-V(x,t)}{\Delta x}=\rho\Delta x u_{tt} (\bar{x},t)
  \end{equation}
 
- Taking the limit of (\ref{eq3}) as $\Delta x \rightarrow 0$ (the equivalent of making the string smaller and smaller)
- we get, from the limit definition of the derivative described in \cite{Spi}, that 
+ Taking the limit of (\ref{eq3}) as $\Delta x \rightarrow 0$ (the equivalent of
+ making the string smaller and smaller) we get, from the limit definition of the
+ derivative described in \cite{Spi}, that 
 
  \begin{equation*}
     \lim_{\Delta x \rightarrow 0}\frac{V(x+\Delta x,t)-V(x,t)}{\Delta x}=V_x(x,t),
@@ -196,43 +213,50 @@ i.e. that
     V_x(x,t)=\rho\Delta x u_{tt} (x,t).
 \end{equation}
 
-We want to express equation (\ref{eq4}) in terms of $u$ entirely. Using the definition of the tangent function we see that the vertical movement is the
-horizontal movement multiplied by the tangent $V(x, t)=H(t)\tan{\theta}$. As the derivative with respect to $x$ is the slope of
-the tangent, as in \cite{Spi}, we have:
+We want to express equation (\ref{eq4}) in terms of $u$ entirely. Using the
+definition of the tangent function we see that the vertical movement is the
+horizontal movement multiplied by the tangent $V(x, t)=H(t)\tan{\theta}$. As the
+derivative with respect to $x$ is the slope of the tangent, as in \cite{Spi}, we
+have:
 
 \begin{equation} \label{eq5}
     V(x,t)=H(t)\tan{\theta}=H(t)u_x(x,t).
 \end{equation}
 
-Looking back at equation (\ref{eq4}) and combining this with (\ref{eq5}) we obtain that
+Looking back at equation (\ref{eq4}) and combining this with (\ref{eq5}) we
+obtain that
 
 \begin{equation*} 
     V_x(x,t)=(H(t)u_x(x,t))_x.
 \end{equation*}
 
-Since $H(t)$ is independent of $x$, then this can be written as $V_x(x,t)=H(t)u_{xx}(x,t)$, which, by equation (\ref{eq4}), 
-gives
+Since $H(t)$ is independent of $x$, then this can be written as
+$V_x(x,t)=H(t)u_{xx}(x,t)$, which, by equation (\ref{eq4}), gives
 
 \begin {equation} \label{eq7}
     H(t)u_{xx}(x, t)=\rho\Delta x u_{tt}(x,t).
 \end{equation}
 
-Since the motion of the sting is small, we can replace $H=T\cos{\theta}$ by $T$, as in \cite{BoyDiP}. Hence, (\ref{eq7}) takes the 
-form of the one-dimensional wave equation:
+Since the motion of the sting is small, we can replace $H=T\cos{\theta}$ by $T$,
+as in \cite{BoyDiP}. Hence, (\ref{eq7}) takes the form of the one-dimensional
+wave equation:
 
 \begin{equation} \label{wave}
     c^2u_{xx}=u_{tt}, 
 \end{equation}
 
-where $c^2=\frac{T}{\rho}$. We can easily verify that $c$ has the dimensions of 
+where $c^2=\frac{T}{\rho}$. We can easily verify that $c$ has the dimensions of
 velocity, as the tension $T$ is a force and $\rho$ is mass divided by length.
 
 \subsection{Two-Dimensions} \label{twodim}
-In the previous section we looked at how to model a musical instrument string, and we obtained the wave equation in 
-one-dimension, (\ref{wave}). In this section, we will see what arguments we need to derive the second order wave equation.
-In two-dimensions, the elastic string is now an elastic, flexible and homogeneous drumhead. Similarly to the string we looked at previously, 
-the drumhead has vertical displacement only, i.e. there is no horizontal movement. Furthermore, the area of the membrane we act on is small
-compared to the entire drumhead, and all angles of inclination are small, see \cite{Kr}.
+In the previous section we looked at how to model a musical instrument string,
+and we obtained the wave equation in one-dimension, (\ref{wave}). In this
+section, we will see what arguments we need to derive the second order wave
+equation. In two-dimensions, the elastic string is now an elastic, flexible and
+homogeneous drumhead. Similarly to the string we looked at previously, the
+drumhead has vertical displacement only, i.e. there is no horizontal movement.
+Furthermore, the area of the membrane we act on is small compared to the entire
+drumhead, and all angles of inclination are small, see \cite{Kr}.
 
 \begin{figure}[h]
     \centering
@@ -241,19 +265,27 @@ compared to the entire drumhead, and all angles of inclination are small, see \c
     \label{fig:2}
 \end{figure}
 
-Using \emph{Newton's Second Law}, as before, we obtain that the horizontal components of the tension $T$ are constant and independent of $x$.
-Deflections of the membrane and angles are small, so the sides of the portions are small and approximately equal to $\Delta x$ and $\Delta y$, 
-as shown in Figure \ref{fig:2}. The tension forces $T$ are acting on the sides of the portion, so it is approximately equal to $T\Delta x$ and $T\Delta y$, 
-respectively. The forces are tangent to the membrane at all times as the membrane is entirely flexible.
-\\
+Using \emph{Newton's Second Law}, as before, we obtain that the horizontal
+components of the tension $T$ are constant and independent of $x$. Deflections
+of the membrane and angles are small, so the sides of the portions are small and
+approximately equal to $\Delta x$ and $\Delta y$, as shown in Figure
+\ref{fig:2}. The tension forces $T$ are acting on the sides of the portion, so
+it is approximately equal to $T\Delta x$ and $T\Delta y$, respectively. The
+forces are tangent to the membrane at all times as the membrane is entirely
+flexible. \\
 
-We will ignore horizontal movement entirely as, like in the one-dimensional case, the components are obtained by multiplying the cosines of 
-the angles by the forces. The angles are very small, so we can assume that the cosine values are approximately 1 and the horizontal 
-components of the forces at opposite ends of the membrane are approximately equal. This means that the motion is very small and we can ignore it.
+We will ignore horizontal movement entirely as, like in the one-dimensional
+case, the components are obtained by multiplying the cosines of the angles by
+the forces. The angles are very small, so we can assume that the cosine values
+are approximately 1 and the horizontal components of the forces at opposite ends
+of the membrane are approximately equal. This means that the motion is very
+small and we can ignore it.
 
-The vertical movement is, however, more important than the horizontal one. From Figure \ref{fig:2} we can see that we have four different components of force.
-Firstly, we have the components along the left and right sides given by $T\Delta y \sin\beta$ and $-T\Delta y\sin\alpha$, respectively. As the 
-angles are very small, we can replace the sines by tangents, as in \cite{Kr}:
+The vertical movement is, however, more important than the horizontal one. From
+Figure \ref{fig:2} we can see that we have four different components of force.
+Firstly, we have the components along the left and right sides given by $T\Delta
+y \sin\beta$ and $-T\Delta y\sin\alpha$, respectively. As the angles are very
+small, we can replace the sines by tangents, as in \cite{Kr}:
 
 \begin{equation} \label{eq9}
 \begin{split} 
@@ -262,16 +294,18 @@ angles are very small, we can replace the sines by tangents, as in \cite{Kr}:
 \end{split}
 \end{equation}
 
-with $y_1, y_2 \in(y, y+\Delta y)$. Similarly, the vertical components in the other two sides are:
+with $y_1, y_2 \in(y, y+\Delta y)$. Similarly, the vertical components in the
+other two sides are:
 
 \begin {equation} \label{eq10}
     T\Delta x(u_y(x_1, y+\Delta y)-u_y(x_2,y)),
 \end{equation}
-where $x_1, x_2 \in(x, x+\Delta x)$.
-\\
+where $x_1, x_2 \in(x, x+\Delta x)$. \\
 
-\emph{Newton's Second Law} with $\rho$ as the mass of undeflected membrane per unit area and $\Delta A=\Delta x\Delta y$ as the area of the portion
-of the membrane when undeflected, gives the partial differential equation governing this motion:
+\emph{Newton's Second Law} with $\rho$ as the mass of undeflected membrane per
+unit area and $\Delta A=\Delta x\Delta y$ as the area of the portion of the
+membrane when undeflected, gives the partial differential equation governing
+this motion:
 
 \begin{equation} \label{eq11}
     \begin{split}
@@ -280,35 +314,43 @@ of the membrane when undeflected, gives the partial differential equation govern
 \end{split}
 \end{equation}
 
-evaluated at some suitable point $(\bar{x},\bar{y})$ corresponding to the section. Divide (\ref{eq11}) by $\rho\Delta x\Delta y$ to obtain:
+evaluated at some suitable point $(\bar{x},\bar{y})$ corresponding to the
+section. Divide (\ref{eq11}) by $\rho\Delta x\Delta y$ to obtain:
 
 \begin{equation} \label{eq12}
     \frac{T}{\rho}\left[\frac{u_x(x+\Delta x, y_1)-u_x(x,y_2)}{\Delta x}+\frac{u_y(x_1,y+ \Delta y)-u_y(x_2,y)}{\Delta y}\right]=u_{tt}.
 \end{equation}
 
-Letting $\Delta x$ and $\Delta y$ go to zero, both terms in the square bracket of (\ref{eq12}) are the limit definitions of derivatives with
-respect to $x$ and $y$ respectively, and so we obtain the formula for the wave equation in two-dimensions:
+Letting $\Delta x$ and $\Delta y$ go to zero, both terms in the square bracket
+of (\ref{eq12}) are the limit definitions of derivatives with respect to $x$ and
+$y$ respectively, and so we obtain the formula for the wave equation in
+two-dimensions:
 
 \begin{equation} \label{wave2deq13}
     u_{tt}=c^2(u_{xx}+u_{yy}),
 \end{equation}
-where, as before, $c^2=\frac{T}{\rho}$. The wave equation in two-dimensions (\ref{wave2deq13}) can also be written as $u_{tt}=c^2\Delta u$, 
-where $\Delta u=u_{xx}+u_{yy}$ is the \emph{Laplacian} of $u$ in two dimensions.
+where, as before, $c^2=\frac{T}{\rho}$. The wave equation in two-dimensions
+(\ref{wave2deq13}) can also be written as $u_{tt}=c^2\Delta u$, where $\Delta
+u=u_{xx}+u_{yy}$ is the \emph{Laplacian} of $u$ in two dimensions.
 
 \subsection{Three Dimensions}
-We can continue with similar arguments to derive the formula for the three-dimensional wave equation:
+We can continue with similar arguments to derive the formula for the
+three-dimensional wave equation:
 
 \begin {equation} \label{wave3deq14}
     u_{tt}=c^2(u_{xx}+u_{yy}+u_{zz}).
 \end{equation}
 
-This equation governs many physical processes and phenomena, such as the vibration of an elastic solid, 
-sound waves in air, seismic waves propagating through the Earth, linearised supersonic airflow and electromagnetic waves such as light and radar, see
+This equation governs many physical processes and phenomena, such as the
+vibration of an elastic solid, sound waves in air, seismic waves propagating
+through the Earth, linearised supersonic airflow and electromagnetic waves such
+as light and radar, see
 \cite{Str}
 
 \section{Solution in One-Dimension}
-In this section, we will prove the D'Alambert solution to the one-dimensional wave equation (\ref{wave}) 
-in the absence of boundary conditions. The problem we wish to solve is as follows:
+In this section, we will prove the D'Alambert solution to the one-dimensional
+wave equation (\ref{wave}) in the absence of boundary conditions. The problem we
+wish to solve is as follows:
 
 \begin{equation} \label{ivp1d}
     \begin{aligned}
@@ -320,14 +362,16 @@ in the absence of boundary conditions. The problem we wish to solve is as follow
 
 \subsection{General Form}
 
-We first begin by showing that the solution has the form $u(x, t)=\phi(\xi)+\psi(\eta)$, where $\xi=x+ct$ and $\eta=x-ct$. This is quite straightforward
-as the operator factorises nicely:
+We first begin by showing that the solution has the form $u(x,
+t)=\phi(\xi)+\psi(\eta)$, where $\xi=x+ct$ and $\eta=x-ct$. This is quite
+straightforward as the operator factorises nicely:
 
 \begin{equation} \label{fact1d}
     u_{tt}-c^2u_{xx}=(\diffp[1]{}{t} - c \diffp[1]{}{x})(\diffp[1]{}{t} + c \diffp[1]{}{x})=0.
 \end{equation}
 
-If we denote the second bracket by $v$, we obtain that $v=u_t+cu_x$. Replacing this $v$ into (\ref{fact1d}), we obtain:
+If we denote the second bracket by $v$, we obtain that $v=u_t+cu_x$. Replacing
+this $v$ into (\ref{fact1d}), we obtain:
 
 \begin{equation*} 
     (\diffp[1]{}{t} -c \diffp[1]{}{x})v=0, \quad \textrm{i.e.} \quad v_t-cv_x=0
@@ -340,20 +384,27 @@ We now have two first-order advection (or in some books, transport) equations:
     u_t+cu_x=v \label{ueq}
 \end{align}
 
-We will first focus on solving (\ref{veq}) using the method of characteristics, a mathematical technique that allows us to transform a partial differential
-equation into a simple system of ordinary differential equation, see \cite{Ev}. The equation (\ref{veq}) is a homogeneous
-advection equation. Consider $v(x(t),t)$ to be the value of $v$ at time $t$ and position $x(t)$. Then we can use the chain rule to differentiate
-$v$ with respect to time:
+We will first focus on solving (\ref{veq}) using the method of characteristics,
+a mathematical technique that allows us to transform a partial differential
+equation into a simple system of ordinary differential equation, see \cite{Ev}.
+The equation (\ref{veq}) is a homogeneous advection equation. Consider
+$v(x(t),t)$ to be the value of $v$ at time $t$ and position $x(t)$. Then we can
+use the chain rule to differentiate $v$ with respect to time:
 
 \begin{equation} \label{diffv}
     \diff{v}{t}=\diffp[1]{v}{t}+\diffp[1]{v}{x}\diff{x}{t}.
 \end{equation}
 
-If we compare (\ref{veq}) and (\ref{diffv}) we see that $\diff{v}{t}=0$ if $\diff{x}{t}=-c$. This is our system of two simple ordinary differential 
-equations. Solving them each at a time we see that the first one is equivalent to saying that $v$ is constant along $x(t)$ for any curve that 
-solves the second ODE. We can integrate this and obtain that $x(t)=-ct+x_0$ where $x_0=x$ at time $t=0$ is just a constant. The equation $x(t)=-ct+x_0$
-is the characteristic curve of this differential equation. If we consider the initial condition at $t=0$ in (\ref{ivp1d}) to be $v(x,0)=V(x)$, then the 
-solution of (\ref{veq}) is $v(x,t)=V(x+ct)$. We can verify this is true by differentiating $v$ with respect to $t$ and $x$:
+If we compare (\ref{veq}) and (\ref{diffv}) we see that $\diff{v}{t}=0$ if
+$\diff{x}{t}=-c$. This is our system of two simple ordinary differential
+equations. Solving them each at a time we see that the first one is equivalent
+to saying that $v$ is constant along $x(t)$ for any curve that solves the second
+ODE. We can integrate this and obtain that $x(t)=-ct+x_0$ where $x_0=x$ at time
+$t=0$ is just a constant. The equation $x(t)=-ct+x_0$ is the characteristic
+curve of this differential equation. If we consider the initial condition at
+$t=0$ in (\ref{ivp1d}) to be $v(x,0)=V(x)$, then the solution of (\ref{veq}) is
+$v(x,t)=V(x+ct)$. We can verify this is true by differentiating $v$ with respect
+to $t$ and $x$:
 
 \begin{equation*}
     \begin{aligned}
@@ -362,11 +413,13 @@ solution of (\ref{veq}) is $v(x,t)=V(x+ct)$. We can verify this is true by diffe
     \end{aligned}
 \end{equation*}
 
-which combined give us precisesly (\ref{veq}), and so $v(x,t)=V(x+ct)$ solves (\ref{veq}).
-\\
+which combined give us precisesly (\ref{veq}), and so $v(x,t)=V(x+ct)$ solves
+(\ref{veq}). \\
 
-Next, we want to solve (\ref{ueq}), where $v(x,t)=V(x+ct)$. This is now a nonhomogeneous advection equation. Let $w=\diffp[1]{u}{t}-c\diffp{u}{x}$, then 
-$\diffp[1]{w}{t}+c\diffp{w}{x}=\diffp[2]{u}{t}-c^2\diffp[2]{u}{x}$. This is is precisesly the wave equation from (\ref{ivp1d}). Once again, we have two first
+Next, we want to solve (\ref{ueq}), where $v(x,t)=V(x+ct)$. This is now a
+nonhomogeneous advection equation. Let $w=\diffp[1]{u}{t}-c\diffp{u}{x}$, then
+$\diffp[1]{w}{t}+c\diffp{w}{x}=\diffp[2]{u}{t}-c^2\diffp[2]{u}{x}$. This is is
+precisesly the wave equation from (\ref{ivp1d}). Once again, we have two first
 order partial differential equations:
 
 \begin{align}
@@ -376,16 +429,18 @@ order partial differential equations:
     u_t-cu_x=w.
 \end{align}
 
-We solve (\ref{weq}) in a similar manner to (\ref{veq}), by differentiating $w(x(t),t)$ with respect to time, using the chain rule:
+We solve (\ref{weq}) in a similar manner to (\ref{veq}), by differentiating
+$w(x(t),t)$ with respect to time, using the chain rule:
 
 \begin{equation} \label{diffw}
     \diff{w}{t}=\diffp[1]{w}{t}+\diffp[1]{w}{x}\diff{x}{t}. 
 \end{equation}
 
-Comparing with (\ref{weq}), we see that $\diff{w}{t}=0$ if $\diff{x}{t}=c$. As before, we get that the characteristic 
-curve of this differential equation is $x(t)=ct+x_0$, where $x_0$ is $x$ at time $t=0$, and is just a constant. Hence, the solution of (\ref{weq})
-is $w(x,t)=W(x-ct)$. We can verify that this solves the equation by differentiating.
-\\
+Comparing with (\ref{weq}), we see that $\diff{w}{t}=0$ if $\diff{x}{t}=c$. As
+before, we get that the characteristic curve of this differential equation is
+$x(t)=ct+x_0$, where $x_0$ is $x$ at time $t=0$, and is just a constant. Hence,
+the solution of (\ref{weq}) is $w(x,t)=W(x-ct)$. We can verify that this solves
+the equation by differentiating. \\
 
 We are now close to the result we set off to prove. Consider $\frac{v+w}{2}$:
 
@@ -402,28 +457,34 @@ When integrating with respect to time, we obtain
     u(x,t)=\frac{1}{2}\left[\int{V(x+ct)dt}+\int{W(x-ct)dt}\right].
 \end{equation}
 
-The first integral in (\ref{int}) is $\phi(x+ct)$ and the second one is $\psi(x-ct)$, such that $\phi'=-\frac{1}{2c}V$ and $\psi'=\frac{1}{2c}W$, respectively.
-Therefore, the general solution to the one dimensional wave equation (\ref{ivp1d}) has the claimed form, 
+The first integral in (\ref{int}) is $\phi(x+ct)$ and the second one is
+$\psi(x-ct)$, such that $\phi'=-\frac{1}{2c}V$ and $\psi'=\frac{1}{2c}W$,
+respectively. Therefore, the general solution to the one dimensional wave
+equation (\ref{ivp1d}) has the claimed form, 
 \begin{equation} \label{gensol}
     u(x, t)=\phi(\xi)+\psi(\eta), \quad \textrm{where} \quad \xi=x+ct \quad \textrm{and} \quad \eta=x-ct.
 \end{equation}
 
 \subsection{Initial Value Problem}
-We now have the general form (\ref{gensol}) of the solution to the one-dimensional wave equation from (\ref{ivp1d}). In this section, we will use it to derive the solution to
-the full initial value problem from (\ref{ivp1d}), where the initial values are $u(x,0)=g(x)$ and $u_t(x,0)=h(x)$. First, set $t=0$ in (\ref{gensol}). This gives:
+We now have the general form (\ref{gensol}) of the solution to the
+one-dimensional wave equation from (\ref{ivp1d}). In this section, we will use
+it to derive the solution to the full initial value problem from (\ref{ivp1d}),
+where the initial values are $u(x,0)=g(x)$ and $u_t(x,0)=h(x)$. First, set $t=0$
+in (\ref{gensol}). This gives:
 
 \begin{equation} \label{t=0}
     u(x,0)=\phi(x)+\psi(x)=g(x).
 \end{equation}
 
-Next, we differentiate (\ref{gensol}) using the chain rule, with respect to $t$ to obtain $u_t(x,t)=c\phi'(x+ct)-c\psi'(x-ct)$. Setting $t=0$ we get:
+Next, we differentiate (\ref{gensol}) using the chain rule, with respect to $t$
+to obtain $u_t(x,t)=c\phi'(x+ct)-c\psi'(x-ct)$. Setting $t=0$ we get:
 
 \begin{equation} \label{ut=0}
     u_t(x,0)=c\phi'(x)-c\psi'(x)=h(x).
 \end{equation}
 
-We simplify our calculations by changing the variable to something neutral, $s \in \mathbb{R}$. 
-Differentiate (\ref{t=0}) to obtain:
+We simplify our calculations by changing the variable to something neutral, $s
+\in \mathbb{R}$. Differentiate (\ref{t=0}) to obtain:
 
 \begin{equation} \label{eqq9}
     g'(s)=\phi'(s)+\psi'(s).
@@ -452,25 +513,28 @@ Integrating both (\ref{eqq11}) and (\ref{eqq12}) gives:
     \end{aligned}
 \end{equation}
 
-where $A$ and $B$ are constants of integration.
-\\
+where $A$ and $B$ are constants of integration. \\
 
-Equation (\ref{ut=0}) tells us that by adding (\ref{eqq11}) and (\ref{eqq12}) we have $A+B=0$ which means that $\phi$ and $\psi$ have the
-same form, see \cite{Str}. Substituting $s=x+ct$ for $\phi(s)$ and $s=x-ct$ for $\psi(s)$ we obtain that
+Equation (\ref{ut=0}) tells us that by adding (\ref{eqq11}) and (\ref{eqq12}) we
+have $A+B=0$ which means that $\phi$ and $\psi$ have the same form, see
+\cite{Str}. Substituting $s=x+ct$ for $\phi(s)$ and $s=x-ct$ for $\psi(s)$ we
+obtain that
 
 \begin{equation}
     u(x,t)=\frac{1}{2}g(x+ct)+\frac{1}{2c}\int^{x+ct}_0h(n)dn+\frac{1}{2}g(x-ct)-\frac{1}{2c}\int^{x-ct}_0h(n)dn.
 \end{equation}
 
-Rearranging gives the D'Alambert formula to the one-dimensional initial value wave equation, developed by the mathematician in 1746, see \cite{Str}:
+Rearranging gives the D'Alambert formula to the one-dimensional initial value
+wave equation, developed by the mathematician in 1746, see \cite{Str}:
 
 \begin{equation} \label{DAla}
     u(x,t)=\frac{1}{2}\left[g(x+ct)+g(x-ct)\right]+\frac{1}{2c}\int^{x+ct}_{x-ct}h(n)dn.
 \end{equation}
 
 \subsection{An Application} \label{anapplication}
-In this section, we want to present an application to the one-dimensional initial value wave equation. We introduce the boundary condition that
-$u(0,t)=0$ to the problem in (\ref{ivp1d}) and obtain the boundary value problem:
+In this section, we want to present an application to the one-dimensional
+initial value wave equation. We introduce the boundary condition that $u(0,t)=0$
+to the problem in (\ref{ivp1d}) and obtain the boundary value problem:
 
 \begin{equation} \label{bvp1d}
     \begin{aligned}
@@ -481,8 +545,9 @@ $u(0,t)=0$ to the problem in (\ref{ivp1d}) and obtain the boundary value problem
     \end{aligned}
 \end{equation}
 
-We know how to solve (\ref{ivp1d}), so we will transform (\ref{bvp1d}) into it by extending $u,g,h$ to all of $\mathbb{R}$ by odd reflection. See \cite{Ev} for more details on this method.
-Hence, we define:
+We know how to solve (\ref{ivp1d}), so we will transform (\ref{bvp1d}) into it
+by extending $u,g,h$ to all of $\mathbb{R}$ by odd reflection. See \cite{Ev} for
+more details on this method. Hence, we define:
 
 \begin{equation*}
     \begin{aligned}
@@ -515,13 +580,15 @@ and so (\ref{bvp1d}) becomes
     &\tilde{u}_t(x,0)=\tilde{h}(x).\\
 \end{align*}
 
-This looks exactly like (\ref{ivp1d}), so we can use the D'Alambert formula (\ref{DAla}) to find a solution for $\tilde{u}$:
+This looks exactly like (\ref{ivp1d}), so we can use the D'Alambert formula
+(\ref{DAla}) to find a solution for $\tilde{u}$:
 
 \begin{equation*}
     \tilde{u}(x,t)=\frac{1}{2}\left[\tilde{g}(x+ct)+\tilde{g}(x-ct)\right]+\frac{1}{2c}\int^{x+ct}_{x-ct}\tilde{h}(s)ds.
 \end{equation*}
 
-Recalling the definitions of $\tilde{u}, \tilde{g}$ and $\tilde{h}$ gives us the solution to (\ref{bvp1d}):
+Recalling the definitions of $\tilde{u}, \tilde{g}$ and $\tilde{h}$ gives us the
+solution to (\ref{bvp1d}):
 
 \begin{equation} \label{bvpsol}
     u(x,t)=
@@ -531,17 +598,22 @@ Recalling the definitions of $\tilde{u}, \tilde{g}$ and $\tilde{h}$ gives us the
     \end{cases}
 \end{equation}
 
-We will use the solution (\ref{bvpsol}) to the boundary value wave equation (\ref{bvp1d}) to solve the three-dimensional wave equation in 
-the next section. Note that if $h \equiv 0$, then (\ref{bvpsol}) can be understood as a split in the initial displacement, one moving
-to the right, and one to the left, see \cite{Ev}. Furthermore, this solution does not belong to $C^2$, the set of twice differentiable functions, 
-unless $g''(0)=0$.
+We will use the solution (\ref{bvpsol}) to the boundary value wave equation
+(\ref{bvp1d}) to solve the three-dimensional wave equation in the next section.
+Note that if $h \equiv 0$, then (\ref{bvpsol}) can be understood as a split in
+the initial displacement, one moving to the right, and one to the left, see
+\cite{Ev}. Furthermore, this solution does not belong to $C^2$, the set of twice
+differentiable functions, unless $g''(0)=0$.
 
 \section{Solution in Three-Dimensions} \label{sec3d}
-In this section, we will prove the solution to the three-dimensional wave equation (\ref{wave3deq14}), as described in \cite[Chap. 2.4]{Ev}. To do this, we will use \emph{spherical
-means}, which allow us to transform the partial differential equation into an integral over a sphere of radius $r$, centred at some point $\boldsymbol{x}$. 
-Some advantages to using an integral form are that we obtain the solution on the whole domain and that we automatically take into account any
-boundary conditions. For more information on spherical means, please see \cite{Sab}. 
-\\
+In this section, we will prove the solution to the three-dimensional wave
+equation (\ref{wave3deq14}), as described in \cite[Chap. 2.4]{Ev}. To do this,
+we will use \emph{spherical means}, which allow us to transform the partial
+differential equation into an integral over a sphere of radius $r$, centred at
+some point $\boldsymbol{x}$. Some advantages to using an integral form are that
+we obtain the solution on the whole domain and that we automatically take into
+account any boundary conditions. For more information on spherical means, please
+see \cite{Sab}. \\
 \\
 
 The problem we wish to solve is
@@ -554,21 +626,26 @@ The problem we wish to solve is
 \end{aligned}
 \end{equation}
 
-We intend, in this section, to derive the formula for $u$ in terms of $g$ and $h$. We plan to look at the average of $u$ as a
-function of the time and radius over certain spheres, and apply the D'Alambert formula (\ref{bvpsol}) from Section \ref{anapplication}.
-Note that throughout the next sections, we will let $\boldsymbol{x}=(x,y,z)$.
+We intend, in this section, to derive the formula for $u$ in terms of $g$ and
+$h$. We plan to look at the average of $u$ as a function of the time and radius
+over certain spheres, and apply the D'Alambert formula (\ref{bvpsol}) from
+Section \ref{anapplication}. Note that throughout the next sections, we will let
+$\boldsymbol{x}=(x,y,z)$.
 
 \subsection{Some Prerequisite Results} \label{prereq}
-As we proceed with our proof of the three-dimensional wave equation, we require some other results, which we will not prove.
-\\
+As we proceed with our proof of the three-dimensional wave equation, we require
+some other results, which we will not prove. \\
 
-Firstly, we introduce some notation to simplify our work in the upcoming sections. If we let $\boldsymbol{x}\in \mathbb{R}^n, t>0, r>0$, then we have:
+Firstly, we introduce some notation to simplify our work in the upcoming
+sections. If we let $\boldsymbol{x}\in \mathbb{R}^n, t>0, r>0$, then we have:
 
 \begin{equation} \label{averageU}
     U(\boldsymbol{x};r,t)=\dashint_{\partial B(\boldsymbol{x},r)}u(\boldsymbol{y},t)dS(\boldsymbol{y}),
 \end{equation}
 
-the average of $u(\cdot,t)$ over the sphere $\partial B(\boldsymbol{x},r)$, as in \cite{Ev}. Similarly, we have the averages of $g$ and $h$ over the same sphere:
+the average of $u(\cdot,t)$ over the sphere $\partial B(\boldsymbol{x},r)$, as
+in \cite{Ev}. Similarly, we have the averages of $g$ and $h$ over the same
+sphere:
 
 \begin{equation} \label{averageGH}
     \begin{aligned}
@@ -577,8 +654,10 @@ the average of $u(\cdot,t)$ over the sphere $\partial B(\boldsymbol{x},r)$, as i
     \end{aligned}
 \end{equation}
 
-When we fix $\boldsymbol{x}$, we can regard $U$ as a function of just $r$ and $t$. Note that if $u$ satisfies equation
-(\ref{3deq}), then we have $U \in C^m(\mathbb{R}_{\ge 0}\times[0,\infty))$, where $\mathbb{R}_{\ge 0}$ is the set of all the positive real numbers. The \emph{Euler-Poisson-Darbuox equation} is
+When we fix $\boldsymbol{x}$, we can regard $U$ as a function of just $r$ and
+$t$. Note that if $u$ satisfies equation (\ref{3deq}), then we have $U \in
+C^m(\mathbb{R}_{\ge 0}\times[0,\infty))$, where $\mathbb{R}_{\ge 0}$ is the set
+of all the positive real numbers. The \emph{Euler-Poisson-Darbuox equation} is
 
 \begin{equation} \label{EPDeq}
     \begin{aligned}
@@ -588,21 +667,31 @@ When we fix $\boldsymbol{x}$, we can regard $U$ as a function of just $r$ and $t
     \end{aligned}
 \end{equation}
 
-Another piece of mathematics we require for our derivation of the solution of the three-dimensional wave equation is the transformation formula for surface integrals. That is,
-we want to show $\int_{\partial B(\boldsymbol{x},t)}f(\boldsymbol{y})dS=r^2\int_{\partial B(\boldsymbol{0},1)} f(\boldsymbol{x}+r\boldsymbol{z})dS(\boldsymbol{z})$. The change of variables formula in $\mathbb{R}^3$ from \cite{LooSter} is:
+Another piece of mathematics we require for our derivation of the solution of
+the three-dimensional wave equation is the transformation formula for surface
+integrals. That is, we want to show $\int_{\partial
+B(\boldsymbol{x},t)}f(\boldsymbol{y})dS=r^2\int_{\partial B(\boldsymbol{0},1)}
+f(\boldsymbol{x}+r\boldsymbol{z})dS(\boldsymbol{z})$. The change of variables
+formula in $\mathbb{R}^3$ from \cite{LooSter} is:
 
 \begin{equation*}
     \int_{\partial B(\boldsymbol{x},r)}f(\boldsymbol{y})dS(y)=\int_U f(\boldsymbol{y}(s,t))\left\| \diffp[1]{}{s}\boldsymbol{y}(s, t) \times \diffp[1]{}{t}\boldsymbol{y}(s, t) \right \|ds dt
 \end{equation*}
 
-The function $f(\boldsymbol{y})$ can be written as $f(\boldsymbol{y})=f(\boldsymbol{x}+r(\frac{\boldsymbol{y}-\boldsymbol{x}}{r}))$ such that $\boldsymbol{y}(s,t)$ can be thought of as a parametrisation of any ball $\partial B(\boldsymbol{x},r)$ for $(s,t)\in U$. Then we can see
-that $\frac{\boldsymbol{y}(s,t)-\boldsymbol{x}}{r}$ is a parametrisation of the sphere of radius 1, centred at the origin, $\partial B(\boldsymbol{0},1)$ for the same $(s,t)\in U$. Furthermore, using these parametrisations, we obtain
+The function $f(\boldsymbol{y})$ can be written as
+$f(\boldsymbol{y})=f(\boldsymbol{x}+r(\frac{\boldsymbol{y}-\boldsymbol{x}}{r}))$
+such that $\boldsymbol{y}(s,t)$ can be thought of as a parametrisation of any
+ball $\partial B(\boldsymbol{x},r)$ for $(s,t)\in U$. Then we can see that
+$\frac{\boldsymbol{y}(s,t)-\boldsymbol{x}}{r}$ is a parametrisation of the
+sphere of radius 1, centred at the origin, $\partial B(\boldsymbol{0},1)$ for
+the same $(s,t)\in U$. Furthermore, using these parametrisations, we obtain
 
 \begin{equation*}
     \left \| \diffp[1]{\boldsymbol{y}}{s} \times \diffp[1]{\boldsymbol{y}}{t} \right \| =r^2 \left \| \diffp[1]{}{s}\Big(\frac{\boldsymbol{y}-\boldsymbol{x}}{r}\Big) \times \diffp[1]{}{s}\Big( \frac{\boldsymbol{y}-\boldsymbol{x}}{r}\Big) \right \|.
 \end{equation*}
 
-Letting $\boldsymbol{z}(s,t)=\frac{\boldsymbol{y}(s,t)-\boldsymbol{x}}{r}$, we obtain our required result:
+Letting $\boldsymbol{z}(s,t)=\frac{\boldsymbol{y}(s,t)-\boldsymbol{x}}{r}$, we
+obtain our required result:
 
 \begin{equation*}
     \begin{aligned}
@@ -612,8 +701,9 @@ Letting $\boldsymbol{z}(s,t)=\frac{\boldsymbol{y}(s,t)-\boldsymbol{x}}{r}$, we o
 \end{equation*}
 
 \subsection{Kirchhoff's Formula}
-We now want to derive the formula for the solution to the wave equation in three-dimensions (\ref{3deq}). We will assume that $u \in C^2(\mathbb{R}^3 \times
-[0, \infty))$ solves (\ref{3deq}). Let us denote:
+We now want to derive the formula for the solution to the wave equation in
+three-dimensions (\ref{3deq}). We will assume that $u \in C^2(\mathbb{R}^3
+\times [0, \infty))$ solves (\ref{3deq}). Let us denote:
 
 \begin{equation} \label{Udash}
     \tilde{U}:=rU
@@ -626,11 +716,11 @@ We now want to derive the formula for the solution to the wave equation in three
     \end{aligned}
 \end{equation}
 
-where $U,G$ and $H$ are defined as in (\ref{averageU}) and (\ref{averageGH}), respectively. 
-\\
+where $U,G$ and $H$ are defined as in (\ref{averageU}) and (\ref{averageGH}),
+respectively. \\
 
-Using this notation and the \emph{Euler-Poisson-Darboux equation} we can
-obtain the boundary value problem solved in Section \ref{anapplication}:
+Using this notation and the \emph{Euler-Poisson-Darboux equation} we can obtain
+the boundary value problem solved in Section \ref{anapplication}:
 
 \begin{equation*}
     \begin{aligned}
@@ -654,15 +744,19 @@ This means that $\tilde{U}$ solves:
     \end{aligned}
 \end{equation}
 
-Note that $\tilde{G}_{rr}(0)=0$ as $\tilde{U}(r,0)=\tilde{G}(r)$ in (\ref{tilUwave}). As this boundary value problem is the same as (\ref{bvp1d}), then we can apply 
-the solution (\ref{bvpsol}) to (\ref{tilUwave}). Hence, for $0 \le r \le t$ we have 
+Note that $\tilde{G}_{rr}(0)=0$ as $\tilde{U}(r,0)=\tilde{G}(r)$ in
+(\ref{tilUwave}). As this boundary value problem is the same as (\ref{bvp1d}),
+then we can apply the solution (\ref{bvpsol}) to (\ref{tilUwave}). Hence, for $0
+\le r \le t$ we have 
 
 \begin{equation} \label{newUtil}
     \tilde{U}(\boldsymbol{x};r,t)=\frac{1}{2c}\left[\tilde{G}(r+ct)-\tilde{G}(r-ct)\right]+\frac{1}{2c}\int^{r+ct}_{-r+ct}\tilde{H}(\boldsymbol{y})d\boldsymbol{y}.
 \end{equation} 
 
-Note that our definition of $U$ from (\ref{averageU}) implies that $u(\boldsymbol{x},t)=\lim_{r\rightarrow 0^+}U(\boldsymbol{x};r,t)$, so our definitions of $\tilde{G}, \tilde{H}$ in (\ref{GHdash}),
- and the new expression for $\tilde{U}$ from (\ref{newUtil}) lead to
+Note that our definition of $U$ from (\ref{averageU}) implies that
+ $u(\boldsymbol{x},t)=\lim_{r\rightarrow 0^+}U(\boldsymbol{x};r,t)$, so our
+ definitions of $\tilde{G}, \tilde{H}$ in (\ref{GHdash}), and the new expression
+ for $\tilde{U}$ from (\ref{newUtil}) lead to
 
 \begin{equation} \label{almostK}
     \begin{aligned}
@@ -674,8 +768,10 @@ Note that our definition of $U$ from (\ref{averageU}) implies that $u(\boldsymbo
 \end{equation}
 \\
 
-Note that in section \ref{prereq} we saw that $\int_{\partial B(\boldsymbol{x},t)}f(\boldsymbol{y})dS=t^2\int_{\partial B(\boldsymbol{0},1)} f(\boldsymbol{x}+t\boldsymbol{z})dS(\boldsymbol{z})$. We will use this to complete our solution of the
-three dimensional wave equation:
+Note that in section \ref{prereq} we saw that $\int_{\partial
+B(\boldsymbol{x},t)}f(\boldsymbol{y})dS=t^2\int_{\partial B(\boldsymbol{0},1)}
+f(\boldsymbol{x}+t\boldsymbol{z})dS(\boldsymbol{z})$. We will use this to
+complete our solution of the three dimensional wave equation:
 
 \begin{equation*}
     \begin{aligned}
@@ -684,30 +780,39 @@ three dimensional wave equation:
     \end{aligned}
 \end{equation*}
 
-where $D$ represents the first-order derivative with respect to time. Substituting this into (\ref{almostK}), we obtain the solution to the three-dimensional wave equation, which is known as \emph{Kirchhoff's formula}, but is 
-actually, due to Poisson, see \cite{Str}:
+where $D$ represents the first-order derivative with respect to time.
+Substituting this into (\ref{almostK}), we obtain the solution to the
+three-dimensional wave equation, which is known as \emph{Kirchhoff's formula},
+but is actually, due to Poisson, see \cite{Str}:
 
 \begin{equation} \label{KircE}
     u(\boldsymbol{x},t)=\dashint_{\partial B(\boldsymbol{x},t)} th(\boldsymbol{y})+Dg(\boldsymbol{y})\Big(\frac{\boldsymbol{y}-\boldsymbol{x}}{t}\Big)+g(\boldsymbol{y})dS(\boldsymbol{y}).
 \end{equation}
 
 \subsection{Another Formula}
-\emph{Strauss}, in \cite{Str} gives another form of Kirchhoff's formula for the solution to the wave equation in three-dimensions. In this section, we aim to prove that 
-this formula is the same as the one we have seen in (\ref{KircE}). The formulation mentioned in \cite{Str} is as follows, where $\boldsymbol{x}=(x,y,z)$, as before:
+\emph{Strauss}, in \cite{Str} gives another form of Kirchhoff's formula for the
+solution to the wave equation in three-dimensions. In this section, we aim to
+prove that this formula is the same as the one we have seen in (\ref{KircE}).
+The formulation mentioned in \cite{Str} is as follows, where
+$\boldsymbol{x}=(x,y,z)$, as before:
 
 \begin{equation} \label{KircSTR}
     u_S(\boldsymbol{x}, t)=\frac{1}{4 \pi c^2 t}\iint_{\partial B(\boldsymbol{x}, t)} h(\boldsymbol{y}dS(\boldsymbol{y}))+\diffp[1]{}{t}\Big( \frac{1}{4 \pi c^2 t}\iint_{\partial B(\boldsymbol{x}, t)} g(\boldsymbol{y})dS(\boldsymbol{y})\Big).
 \end{equation}
 
-For a more comfortable identification of the two formulae by different authors, we will rewrite (\ref{KircE}): 
+For a more comfortable identification of the two formulae by different authors,
+we will rewrite (\ref{KircE}): 
 
 \begin{equation} \label{KircEV}
     u_E(\boldsymbol{x},t)=\dashint_{\partial B(\boldsymbol{x},t)} th(\boldsymbol{y})+Dg(\boldsymbol{y})\Big(\frac{\boldsymbol{y}-\boldsymbol{x}}{t}\Big)+g(\boldsymbol{y})dS(\boldsymbol{y}).
 \end{equation}
 
-In order to start identifying common parts between the two formulae, recall that $\dashint_{\partial B(\boldsymbol{x}, t)}$ was the average over the sphere $\partial B(\boldsymbol{x}, t)$.
-This is the same as $\frac{1}{4 \pi c^2 t^2}\iint_{\partial B(\boldsymbol{x}, t)}$, since the surface area of the sphere is $4\pi r^2$, where $r$ is the radius of the sphere, 
-in our case, $t$. Using this, we can rewrite (\ref{KircEV}) as:
+In order to start identifying common parts between the two formulae, recall that
+$\dashint_{\partial B(\boldsymbol{x}, t)}$ was the average over the sphere
+$\partial B(\boldsymbol{x}, t)$. This is the same as $\frac{1}{4 \pi c^2
+t^2}\iint_{\partial B(\boldsymbol{x}, t)}$, since the surface area of the sphere
+is $4\pi r^2$, where $r$ is the radius of the sphere, in our case, $t$. Using
+this, we can rewrite (\ref{KircEV}) as:
 
 \begin{equation*}
     \begin{aligned}
@@ -716,7 +821,8 @@ in our case, $t$. Using this, we can rewrite (\ref{KircEV}) as:
     \end{aligned}
 \end{equation*}
 
-Our aim is to show that $u_S$ and $u_E$ are the same. We start by letting $g=0$ in both (\ref{KircEV}) and (\ref{KircSTR}):
+Our aim is to show that $u_S$ and $u_E$ are the same. We start by letting $g=0$
+in both (\ref{KircEV}) and (\ref{KircSTR}):
 
 \begin{equation} \label{g=0}
     \begin{aligned}
@@ -726,7 +832,8 @@ Our aim is to show that $u_S$ and $u_E$ are the same. We start by letting $g=0$ 
     \end{aligned}
 \end{equation}
 
-This computation shows that the first parts of the two formulae are the same. Next, we show that the second parts are the same by letting $h=0$:
+This computation shows that the first parts of the two formulae are the same.
+Next, we show that the second parts are the same by letting $h=0$:
 
 \begin{equation} \label{starr}
     \begin{aligned}
@@ -736,8 +843,11 @@ This computation shows that the first parts of the two formulae are the same. Ne
     \end{aligned}
 \end{equation}
 
-Using the transformation of surface integrals described in section \ref{prereq}, we obtain that $\dashint_{\partial B(\boldsymbol{x}, t)}g(\boldsymbol{y})dS(\boldsymbol{y})=\dashint_{\partial B(\boldsymbol{0}, 1)}g(\boldsymbol{x}+t\boldsymbol{z})dS(\boldsymbol{z})$. 
-This means that (\label{starr}) becomes:
+Using the transformation of surface integrals described in section \ref{prereq},
+we obtain that $\dashint_{\partial B(\boldsymbol{x},
+t)}g(\boldsymbol{y})dS(\boldsymbol{y})=\dashint_{\partial B(\boldsymbol{0},
+1)}g(\boldsymbol{x}+t\boldsymbol{z})dS(\boldsymbol{z})$. This means that
+(\label{starr}) becomes:
  
 \begin{equation} \label{h=0} 
     \begin{aligned}
@@ -750,43 +860,72 @@ This means that (\label{starr}) becomes:
     \end{aligned}
 \end{equation}
 
-Since in both (\ref{g=0}) and (\ref{h=0}) we showed that $u_S=u_E$, then we can conclude that the two solutions to the three-dimensional wave equation are the same.
+Since in both (\ref{g=0}) and (\ref{h=0}) we showed that $u_S=u_E$, then we can
+conclude that the two solutions to the three-dimensional wave equation are the
+same.
 
 \section{Solution in Two-Dimensions} \label{sec2d}
-In this section, we will present the solution to the two-dimensional wave equation derived in \ref{twodim}. Before we prove the solution, we will discuss \emph{Huygens' 
-Principle} and explain why we solved the three-dimensional equation first.
+In this section, we will present the solution to the two-dimensional wave
+equation derived in \ref{twodim}. Before we prove the solution, we will discuss
+\emph{Huygens' Principle} and explain why we solved the three-dimensional
+equation first.
 
 \subsection{Huygens' Principle}
-\emph{Huygens' Principle} describes how we can physically hear sharp sounds and see sharp images. \emph{Folland}, in \cite{Fol}, gives a very simple example to illustrate 
-this. If we are in a dark room at a position $x_0$ that doesn't change, and we set off a flash light at the origin of the three-dimensional system we 
-created from the room, at time $t=0$, then we will be able to see the light only for as long as it takes it to travel from its position to where we are, the room
-becoming dark again after. Another simple example to illustrate \emph{Huygens' Principle} is given by \emph{Strauss} in \cite{Str}, where he looks at how the sound
-of a musical instrument is heard by the human ear. Sound is carried through air at precisely the fixed speed $c$ without any disturbance by assuming
-there are no walls or other inhomogeneities in the air, so that at any time $t$, the listener hears exactly what notes the musical instrument plays at the time $t-\frac{d}{c}$,
-where $d$ is the distance between the listener and the instrument, rather than hearing a mixture of notes from earlier echoing over the new notes. These three-dimensional 
-examples show phenomena that are known as \emph{Huygens' Principle}, which asserts that an initial state is observed at a different place as an effect that is 
-very rigorously delimited, see \cite{Hil} .
+\emph{Huygens' Principle} describes how we can physically hear sharp sounds and
+see sharp images. \emph{Folland}, in \cite{Fol}, gives a very simple example to
+illustrate this. If we are in a dark room at a position $x_0$ that doesn't
+change, and we set off a flash light at the origin of the three-dimensional
+system we created from the room, at time $t=0$, then we will be able to see the
+light only for as long as it takes it to travel from its position to where we
+are, the room becoming dark again after. Another simple example to illustrate
+\emph{Huygens' Principle} is given by \emph{Strauss} in \cite{Str}, where he
+looks at how the sound of a musical instrument is heard by the human ear. Sound
+is carried through air at precisely the fixed speed $c$ without any disturbance
+by assuming there are no walls or other inhomogeneities in the air, so that at
+any time $t$, the listener hears exactly what notes the musical instrument plays
+at the time $t-\frac{d}{c}$, where $d$ is the distance between the listener and
+the instrument, rather than hearing a mixture of notes from earlier echoing over
+the new notes. These three-dimensional examples show phenomena that are known as
+\emph{Huygens' Principle}, which asserts that an initial state is observed at a
+different place as an effect that is very rigorously delimited, see \cite{Hil} .
 \\
 
-This physical phenomenon makes sense in three-dimensions, and it is encountered in everyday life. However, we might be interested in what happens if a two-dimensional system would follow
-the same rules. This does not make sense, and an example to show this comes from dropping a pebble into an undisturbed pond. The waves that are created by the pebble satisfy 
-approximately well the two-dimensional wave equation with a certain speed $c$, where $x$ and $y$ are horizontal coordinates of the 2D plane. If we assume there exists
-a waterbug without any movement, at a distance $d$ from the point of impact between the pebble and the water, it will feel a wave at time $t=\frac{d}{c}$, but that wave will
-not stop upon reaching the waterbug but continue to send out waves. Those secondary waves become so small that they are no longer felt after a period of time, but they 
-do not actually ever stop, as described in \cite{Str}. This means that \emph{Huygens' Principle} no longer holds. This is because the time does not limit the initial state is not limited 
-in time, i.e. once a signal reaches a point in the two-dimensional space, it continues there indefinitely. More details about the physical interpretations can be found in \cite{Hil}.
-\\
+This physical phenomenon makes sense in three-dimensions, and it is encountered
+in everyday life. However, we might be interested in what happens if a
+two-dimensional system would follow the same rules. This does not make sense,
+and an example to show this comes from dropping a pebble into an undisturbed
+pond. The waves that are created by the pebble satisfy approximately well the
+two-dimensional wave equation with a certain speed $c$, where $x$ and $y$ are
+horizontal coordinates of the 2D plane. If we assume there exists a waterbug
+without any movement, at a distance $d$ from the point of impact between the
+pebble and the water, it will feel a wave at time $t=\frac{d}{c}$, but that wave
+will not stop upon reaching the waterbug but continue to send out waves. Those
+secondary waves become so small that they are no longer felt after a period of
+time, but they do not actually ever stop, as described in \cite{Str}. This means
+that \emph{Huygens' Principle} no longer holds. This is because the time does
+not limit the initial state is not limited in time, i.e. once a signal reaches a
+point in the two-dimensional space, it continues there indefinitely. More
+details about the physical interpretations can be found in \cite{Hil}. \\
 
-\emph{Huygens's Principle} allowed us to straightforwardly derive the solution of the three-dimensional equation using spherical means. However, this same principle
-means that the same method cannot be employed to solve the two-dimensional equation, but it offers an alternative based on the three-dimensional problem. The trick is
-to solve the case in three-dimensions and then \emph{descend} into two dimensions by letting the $z$-coordinate in $u_{tt}=c^2(u_{xx}+u_{yy}+u_{zz})$ equal $0$, as in \cite{Ev}. We shall see how this works in the 
-next section. 
+\emph{Huygens's Principle} allowed us to straightforwardly derive the solution
+of the three-dimensional equation using spherical means. However, this same
+principle means that the same method cannot be employed to solve the
+two-dimensional equation, but it offers an alternative based on the
+three-dimensional problem. The trick is to solve the case in three-dimensions
+and then \emph{descend} into two dimensions by letting the $z$-coordinate in
+$u_{tt}=c^2(u_{xx}+u_{yy}+u_{zz})$ equal $0$, as in \cite{Ev}. We shall see how
+this works in the next section. 
 
 \subsection{Poisson's Formula}
 
-In this section, we will prove the solution to the two-dimensional wave equation. We cannot transform the \emph{Euler-Poisson-Darboux equation} (\ref{EPDeq}) using (\ref{Udash}) and (\ref{GHdash}) 
-into the one-dimensional equation when $n=2$. This is why we do not have a specific method to solving the two-dimensional problem other than considering it as the previously solved three-dimensional problem
-with the third spatial coordinate equal to $0$. Let $u \in C^2(\mathbb{R}^2 \times [0, \infty))$ solve the wave equation in two-dimensions:
+In this section, we will prove the solution to the two-dimensional wave
+equation. We cannot transform the \emph{Euler-Poisson-Darboux equation}
+(\ref{EPDeq}) using (\ref{Udash}) and (\ref{GHdash}) into the one-dimensional
+equation when $n=2$. This is why we do not have a specific method to solving the
+two-dimensional problem other than considering it as the previously solved
+three-dimensional problem with the third spatial coordinate equal to $0$. Let $u
+\in C^2(\mathbb{R}^2 \times [0, \infty))$ solve the wave equation in
+two-dimensions:
 
 \begin{equation} \label{2d}
     \begin{aligned}
@@ -796,7 +935,8 @@ with the third spatial coordinate equal to $0$. Let $u \in C^2(\mathbb{R}^2 \tim
     \end{aligned}
 \end{equation}
 
-Then, we can let $\bar{u}(x, y, z, t):=u(x, y, t)$ such that the problem we wish to solve becomes:
+Then, we can let $\bar{u}(x, y, z, t):=u(x, y, t)$ such that the problem we wish
+to solve becomes:
 
 \begin{equation} \label{2das3d}
     \begin{aligned}
@@ -806,7 +946,9 @@ Then, we can let $\bar{u}(x, y, z, t):=u(x, y, t)$ such that the problem we wish
     \end{aligned}
 \end{equation}
 
-Let $\boldsymbol{x}=(x,y)\in \mathbb{R}^2$ and $\boldsymbol{\bar{x}}=(x,y, 0)\in \mathbb{R}^3$. Then, combining (\ref{2das3d}) with the (\ref{almostK}) form of Kirchhoff's formula, we obtain:
+Let $\boldsymbol{x}=(x,y)\in \mathbb{R}^2$ and $\boldsymbol{\bar{x}}=(x,y, 0)\in
+\mathbb{R}^3$. Then, combining (\ref{2das3d}) with the (\ref{almostK}) form of
+Kirchhoff's formula, we obtain:
 
 \begin{equation} \label{star}
     \begin{aligned}
@@ -815,10 +957,14 @@ Let $\boldsymbol{x}=(x,y)\in \mathbb{R}^2$ and $\boldsymbol{\bar{x}}=(x,y, 0)\in
     \end{aligned}
 \end{equation}
 
-where $\partial\bar{B}(\boldsymbol{\bar{x}},t)$ is the ball centered at $\boldsymbol{\bar{x}}$, of radius $t>0$, in $\mathbb{R}^3$, and that $d\bar{S}$ is the two-dimensional measure on 
-$\partial\bar{B}(\boldsymbol{\bar{x}},t)$. Note that $\dashint_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)} \bar{g} d\bar{S}=\frac{1}{4\pi t^2}\int_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)}\bar{g} d\bar{S}$, as they
-both represent the average over the sphere. Let $\gamma (\boldsymbol{y})=(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}$, for $\boldsymbol{y} \in B(\boldsymbol{x}, t)$. Using 
-this we obtain:
+where $\partial\bar{B}(\boldsymbol{\bar{x}},t)$ is the ball centered at
+$\boldsymbol{\bar{x}}$, of radius $t>0$, in $\mathbb{R}^3$, and that $d\bar{S}$
+is the two-dimensional measure on $\partial\bar{B}(\boldsymbol{\bar{x}},t)$.
+Note that $\dashint_{\partial \bar{B}(\boldsymbol{\bar{x}}, t)} \bar{g}
+d\bar{S}=\frac{1}{4\pi t^2}\int_{\partial \bar{B}(\boldsymbol{\bar{x}},
+t)}\bar{g} d\bar{S}$, as they both represent the average over the sphere. Let
+$\gamma (\boldsymbol{y})=(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}$, for
+$\boldsymbol{y} \in B(\boldsymbol{x}, t)$. Using this we obtain:
 
 \begin{equation*}
     \begin{aligned}
@@ -827,8 +973,11 @@ this we obtain:
     \end{aligned}
 \end{equation*}
 
-We have $2$ as the numerator of the fraction as the sphere $\partial\bar{B}(\boldsymbol{\bar{x}}, t)$ consists of two hemispheres. Furthermore, $D\gamma (\boldsymbol{y})$ is the first derivative of $\gamma$ with respect to $\boldsymbol{y}$, and it is
-$D\gamma (\boldsymbol{y})=-\frac{|\boldsymbol{y}-\boldsymbol{x}|}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}$. 
+We have $2$ as the numerator of the fraction as the sphere
+$\partial\bar{B}(\boldsymbol{\bar{x}}, t)$ consists of two hemispheres.
+Furthermore, $D\gamma (\boldsymbol{y})$ is the first derivative of $\gamma$ with
+respect to $\boldsymbol{y}$, and it is $D\gamma
+(\boldsymbol{y})=-\frac{|\boldsymbol{y}-\boldsymbol{x}|}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}$.
 \\
 \\
 
@@ -862,7 +1011,11 @@ Hence, (\ref{star}) is:
     \end{split}
 \end{equation}
 
-Using a similar transformation to the one described in section \ref{prereq}, we get that $t^2\dashint_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2})}d\boldsymbol{y}$ is equal to  $t\dashint_{B(0,1)}\frac{g(\boldsymbol{x}+t\boldsymbol{z})}{(1-|\boldsymbol{z}|^2)^{1/2}}d\boldsymbol{y}$. 
+Using a similar transformation to the one described in section \ref{prereq}, we
+get that
+$t^2\dashint_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2})}d\boldsymbol{y}$
+is equal to
+$t\dashint_{B(0,1)}\frac{g(\boldsymbol{x}+t\boldsymbol{z})}{(1-|\boldsymbol{z}|^2)^{1/2}}d\boldsymbol{y}$.
 Therefore, the first part of (\ref{triangle}) can be written as:
 
 \begin{equation*}
@@ -872,7 +1025,9 @@ Therefore, the first part of (\ref{triangle}) can be written as:
     \end{aligned}
 \end{equation*}
 
-We can now rewrite $u(\boldsymbol{x},t)$ from (\ref{triangle}) in the form of the solution of the two-dimensional wave equation, also known as Poisson's formula, see \cite{Ev}.
+We can now rewrite $u(\boldsymbol{x},t)$ from (\ref{triangle}) in the form of
+the solution of the two-dimensional wave equation, also known as Poisson's
+formula, see \cite{Ev}.
  
 \begin{equation} \label{poiss}
     u(\boldsymbol{x},t)=\frac{1}{2}\dashint_{B(\boldsymbol{x},t)} \frac{tg(\boldsymbol{y})+t^2h(\boldsymbol{y})+tDg(\boldsymbol{y})\cdot (\boldsymbol{y}-\boldsymbol{x})}{t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}.
@@ -880,14 +1035,18 @@ We can now rewrite $u(\boldsymbol{x},t)$ from (\ref{triangle}) in the form of th
 
 \section{Solutions in Higher Dimensions}
 
-In this section, we will generalise the results obtained in sections \ref{sec3d} and \ref{sec2d} to higher odd and even dimensions. We separate between odd and even as 
-in order to derive the even-dimensional general solution, we require the odd-dimensional one.
+In this section, we will generalise the results obtained in sections \ref{sec3d}
+and \ref{sec2d} to higher odd and even dimensions. We separate between odd and
+even as in order to derive the even-dimensional general solution, we require the
+odd-dimensional one.
 
 \subsection{Odd Dimensions}
 
-In our derivation of the general odd-dimensional solution to the wave equation, we will follow the method described in \cite{Ev}. First, we require some technical 
-results. We will not prove them, but more information can be found in \cite[Lemma 2]{Ev}. Let $\phi:\mathbb{R} \to \mathbb{R}$ be $C^{k+1}$ ($k+1$ continuously differentiable), 
-then for $k=1, 2, ...$:
+In our derivation of the general odd-dimensional solution to the wave equation,
+we will follow the method described in \cite{Ev}. First, we require some
+technical results. We will not prove them, but more information can be found in
+\cite[Lemma 2]{Ev}. Let $\phi:\mathbb{R} \to \mathbb{R}$ be $C^{k+1}$ ($k+1$
+continuously differentiable), then for $k=1, 2, ...$:
 
 \begin{align}
     &\Big(\diff[2]{}{r}\Big)\Big( \frac{1}{r} \diff{}{r}\Big)^{k-1}(r^{2k-1}\phi(r))=\Big( \frac{1}{r} \diff{}{r}\Big)^k \Big(r^{2k} \diff{\phi}{r}(r) \Big); \label{i} \\
@@ -896,8 +1055,9 @@ then for $k=1, 2, ...$:
     & \beta_{0}^{k}=1 \cdot 3 \cdot 5 \cdot ... \cdot (2k-1). \label{iii}
 \end{align}
 
-Assume that $n \ge 3$ is an odd integer such that $n=2k+1$ with $k \ge 1$. Also suppose that $u(\boldsymbol{x},t) \in C^{k+1}(\mathbb{R}^n \times [0, \infty))$ solves the 
-n-dimensional wave equation:
+Assume that $n \ge 3$ is an odd integer such that $n=2k+1$ with $k \ge 1$. Also
+suppose that $u(\boldsymbol{x},t) \in C^{k+1}(\mathbb{R}^n \times [0, \infty))$
+solves the n-dimensional wave equation:
 
 \begin{equation} \label{ndimeq}
     \begin{aligned}
@@ -907,8 +1067,9 @@ n-dimensional wave equation:
     \end{aligned}
 \end{equation} 
 
-Hence, $U$, as defined in (\ref{averageU}) is $k+1$ continuously differentiable ($C^{k+1}$). So, using the definitions in (\ref{averageU}) and (\ref{averageGH}), we 
-introduce the following notation:
+Hence, $U$, as defined in (\ref{averageU}) is $k+1$ continuously differentiable
+($C^{k+1}$). So, using the definitions in (\ref{averageU}) and
+(\ref{averageGH}), we introduce the following notation:
 
 \begin{equation} \label{ndimUGH}
     \begin{aligned}
@@ -918,9 +1079,12 @@ introduce the following notation:
     \end{aligned}
 \end{equation}
 
-with $r>0$ and $t \ge 0$. Note that at $t=0$, $\hat{U}(r,0)=\hat{G}(r)$ and $\hat{U}_t(r,0)=H(r)$. Combining the \emph{Euler-Poisson-Darboux equation} (\ref{EPDeq}) with 
-(\ref{i}), (\ref{ii}) and (\ref{iii}), we will show that (\ref{ndimUGH}) transforms the \emph{Euler-Poisson-Darboux equation} into the wave equation solved in section \ref{anapplication}, (\ref{bvp1d}).
-We will first show that $\hat{U}$ satisfies (\ref{bvp1d}) for $r>0$:
+with $r>0$ and $t \ge 0$. Note that at $t=0$, $\hat{U}(r,0)=\hat{G}(r)$ and
+$\hat{U}_t(r,0)=H(r)$. Combining the \emph{Euler-Poisson-Darboux equation}
+(\ref{EPDeq}) with (\ref{i}), (\ref{ii}) and (\ref{iii}), we will show that
+(\ref{ndimUGH}) transforms the \emph{Euler-Poisson-Darboux equation} into the
+wave equation solved in section \ref{anapplication}, (\ref{bvp1d}). We will
+first show that $\hat{U}$ satisfies (\ref{bvp1d}) for $r>0$:
 
 \begin{equation*}
     \begin{aligned}
@@ -934,12 +1098,14 @@ We will first show that $\hat{U}$ satisfies (\ref{bvp1d}) for $r>0$:
     \end{aligned}
 \end{equation*}
 
-We solved (\ref{bvp1d}) in section \ref{anapplication} and the solution is given by: 
+We solved (\ref{bvp1d}) in section \ref{anapplication} and the solution is given
+by: 
 \begin{equation}\label{nomorelabels}
     \hat{U}(r,t)=\frac{1}{2}[\hat{G}(r+ct)-\hat{G}(ct-r)]+\frac{1}{2}\int_{ct-r}^{r+ct}\hat{H}(y)dy,
 \end{equation}
 
-for all $r\in\mathbb{R}, t \ge 0$. Recall that $u(\boldsymbol{x},t)=\lim_{x \rightarrow 0} U(\boldsymbol{x}; r, t)$.
+for all $r\in\mathbb{R}, t \ge 0$. Recall that $u(\boldsymbol{x},t)=\lim_{x
+\rightarrow 0} U(\boldsymbol{x}; r, t)$.
 
 Hence, by (\ref{ii}), we have:
 
@@ -950,7 +1116,9 @@ Hence, by (\ref{ii}), we have:
     \end{aligned}
 \end{equation*}
 
-Therefore, $\lim_{r \rightarrow 0} \frac{\hat{U}}{\beta_0^k r}=\lim_{r \rightarrow 0} U(\boldsymbol{x}; r, t)=u(\boldsymbol{x}, t)$, and so, by (\ref{nomorelabels}) we get:
+Therefore, $\lim_{r \rightarrow 0} \frac{\hat{U}}{\beta_0^k r}=\lim_{r
+\rightarrow 0} U(\boldsymbol{x}; r, t)=u(\boldsymbol{x}, t)$, and so, by
+(\ref{nomorelabels}) we get:
 
 \begin{equation*}
     \begin{aligned}
@@ -959,7 +1127,8 @@ Therefore, $\lim_{r \rightarrow 0} \frac{\hat{U}}{\beta_0^k r}=\lim_{r \rightarr
     \end{aligned}
 \end{equation*}
 
-Hence, since $n=2k+1$, (\ref{nomorelabels}) and (\ref{iii}) imply the representation formula:
+Hence, since $n=2k+1$, (\ref{nomorelabels}) and (\ref{iii}) imply the
+representation formula:
 
 \begin{equation} \label{solnodd}
     \begin{split}
@@ -968,13 +1137,20 @@ Hence, since $n=2k+1$, (\ref{nomorelabels}) and (\ref{iii}) imply the representa
     \end{split}
 \end{equation} 
 
-where $n$ is odd, $\gamma_n=1 \cdot 3 \cdot ... \cdot (n-2)$ and $\boldsymbol{x}\in \mathbb{R}^n$. Note that for $n=3$, $\gamma_3 = 1$ and (\ref{solnodd}) agrees with 
-\emph{Kirchhoff's formula} (\ref{KircE}) for the three-dimensional solution of the wave equation. Hence, (\ref{solnodd}) is a general formula for the odd-dimenstional problem.
+where $n$ is odd, $\gamma_n=1 \cdot 3 \cdot ... \cdot (n-2)$ and
+$\boldsymbol{x}\in \mathbb{R}^n$. Note that for $n=3$, $\gamma_3 = 1$ and
+(\ref{solnodd}) agrees with \emph{Kirchhoff's formula} (\ref{KircE}) for the
+three-dimensional solution of the wave equation. Hence, (\ref{solnodd}) is a
+general formula for the odd-dimenstional problem.
 
 \subsection{Even Dimensions}
-Continuing with our proof of the high-dimensional wave equations as presented in \cite{Ev}, we now assume that $n$ in (\ref{ndimeq}). Suppose that $u$, the function that 
-solves the even-dimensional wave equation is $u \in C^m$ (m times continuously differentiable), where $m=\frac{n+2}{2}$. The trick is the same as in the solution of the 
-two-dimensional problem: we consider the odd-dimensional problem and descend into the even dimension through the method of descent. As before, let:
+Continuing with our proof of the high-dimensional wave equations as presented in
+\cite{Ev}, we now assume that $n$ in (\ref{ndimeq}). Suppose that $u$, the
+function that solves the even-dimensional wave equation is $u \in C^m$ (m times
+continuously differentiable), where $m=\frac{n+2}{2}$. The trick is the same as
+in the solution of the two-dimensional problem: we consider the odd-dimensional
+problem and descend into the even dimension through the method of descent. As
+before, let:
 
 \begin{equation} \label{dot}
     \begin{aligned}
@@ -993,12 +1169,14 @@ where
     \end{aligned}
 \end{equation}
 
-Since $n$ is even, then $n+1$ is odd, and so we can use (\ref{solnodd}) with $n+1$ in the place of $n$ in order to secure a formula for $\check{u}$ 
-in terms of $\check{g}$ and $\check{h}$. Then (\ref{dot}) and (\ref{ddot}) will immediately hold a formula for $u$ in terms of $g$ and $h$.
-\\
+Since $n$ is even, then $n+1$ is odd, and so we can use (\ref{solnodd}) with
+$n+1$ in the place of $n$ in order to secure a formula for $\check{u}$ in terms
+of $\check{g}$ and $\check{h}$. Then (\ref{dot}) and (\ref{ddot}) will
+immediately hold a formula for $u$ in terms of $g$ and $h$. \\
 
-Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write $\check{\boldsymbol{x}}=(x_1, x_2, ..., x_n, 0) \in \mathbb{R}^{n+1}$. Then, replacing $n$ with $n+1$ in 
-(\ref{solnodd}) becomes:
+Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write
+$\check{\boldsymbol{x}}=(x_1, x_2, ..., x_n, 0) \in \mathbb{R}^{n+1}$. Then,
+replacing $n$ with $n+1$ in (\ref{solnodd}) becomes:
 
 \begin{equation} \label{solneven}
     \begin{split}
@@ -1007,12 +1185,20 @@ Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write $\check{\boldsymbol{x}}=
     \end{split}
 \end{equation} 
 
- where $\partial \check{B}(\boldsymbol{\check{x}},t)$ is the sphere in $\mathbb{R}^{n+1}$ centered at $\boldsymbol{\check{x}}$ and of radius $t$, and 
- $d\check{S}$ is the n-dimensional surface measure on $\partial \check{B}(\boldsymbol{\check{x}},t)$. Let $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$ and 
- consider $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}=\frac{1}{(n+1)\alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}\check{g}d\check{S}$. Then
- $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}=\frac{2}{(n+1)\alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}g(\boldsymbol{y})(1+|D\gamma(\boldsymbol{y})|^2)^{1/2}d\boldsymbol{y}$.
- As in the two-dimensional case, the $2$ in the fraction comes from the fact that we work with two hemisphere. As before, $(1+|D\gamma (\boldsymbol{y})|^2)^{1/2}=t(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{-1/2}$. Substituting this 
- into the expression for $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}$, we get:
+ where $\partial \check{B}(\boldsymbol{\check{x}},t)$ is the sphere in
+ $\mathbb{R}^{n+1}$ centered at $\boldsymbol{\check{x}}$ and of radius $t$, and
+ $d\check{S}$ is the n-dimensional surface measure on $\partial
+ \check{B}(\boldsymbol{\check{x}},t)$. Let
+ $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$ and consider
+ $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)}
+ \check{g}d\check{S}=\frac{1}{(n+1)\alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}\check{g}d\check{S}$.
+ Then $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)}
+ \check{g}d\check{S}=\frac{2}{(n+1)\alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}g(\boldsymbol{y})(1+|D\gamma(\boldsymbol{y})|^2)^{1/2}d\boldsymbol{y}$.
+ As in the two-dimensional case, the $2$ in the fraction comes from the fact
+ that we work with two hemisphere. As before, $(1+|D\gamma
+ (\boldsymbol{y})|^2)^{1/2}=t(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{-1/2}$.
+ Substituting this into the expression for $\dashint_{\partial
+ \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}$, we get:
 
  \begin{equation*}
     \begin{aligned}
@@ -1021,7 +1207,8 @@ Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write $\check{\boldsymbol{x}}=
     \end{aligned}
 \end{equation*}
 
-We obtain a similar formula with $h$ in the place of $g$, and replacing into (\ref{solneven}) we obtain:
+We obtain a similar formula with $h$ in the place of $g$, and replacing into
+(\ref{solneven}) we obtain:
 
 \begin{equation*}
     \begin{split}
@@ -1030,8 +1217,10 @@ We obtain a similar formula with $h$ in the place of $g$, and replacing into (\r
     \end{split}
 \end{equation*}
 
-Since $\gamma_{n+1}=1 \cdot 3 \cdot ... \cdot (n-1)$ and $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$, then $\gamma_n=2 \cdot 4 \cdot ... \cdot(n-2) \cdot n$. 
-Hence, we obtain the general solution in even dimensions:
+Since $\gamma_{n+1}=1 \cdot 3 \cdot ... \cdot (n-1)$ and
+$\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$, then $\gamma_n=2
+\cdot 4 \cdot ... \cdot(n-2) \cdot n$. Hence, we obtain the general solution in
+even dimensions:
 
 \begin{equation} \label{solnev}
     \begin{split}
@@ -1040,11 +1229,77 @@ Hence, we obtain the general solution in even dimensions:
     \end{split}
 \end{equation}
 
-where $n$ is even, $\gamma_n=2 \cdot 4 \cdot ... \cdot(n-2) \cdot n$, $\boldsymbol{x}\in \mathbb{R}^n$ and $t>0$. Note that for $n=2$, $\gamma_2 = 2$ and (\ref{solnev}) agrees with 
-\emph{Poisson's formula} (\ref{poiss}) for the two-dimensional solution of the wave equation. Hence, (\ref{solnev}) is a general formula for the even-dimenstional problem.
+where $n$ is even, $\gamma_n=2 \cdot 4 \cdot ... \cdot(n-2) \cdot n$,
+$\boldsymbol{x}\in \mathbb{R}^n$ and $t>0$. Note that for $n=2$, $\gamma_2 = 2$
+and (\ref{solnev}) agrees with \emph{Poisson's formula} (\ref{poiss}) for the
+two-dimensional solution of the wave equation. Hence, (\ref{solnev}) is a
+general formula for the even-dimensional problem.
 
 
 \subsection{Uniqueness of Solutions}
+In this section, we will show that the solution formulas we found for the wave
+equation in odd and even dimensions are unique. The formulas (\ref{solnodd}) and
+(\ref{solnev}) make us be very careful about the smoothness assumptions we make
+upon the data $g$ and $h$ to ensure we have a continuous twice differentiable
+solution, $u \in C^2$, as we increase the value of $n$. \emph{Evans}, in
+\cite{Ev}, says that we need another way to measure smoothness and size, and
+introduces the idea of using \emph{energy methods}. These methods are based on
+conservation of energy and will be presenteed in the form of \emph{energy
+integrals}. More information on this topic can be found in \cite[Chapter VI,
+Section 6]{Hil}. \\
+
+The form of the \emph{energy} that we use is the one given in \cite{Ev}:
+
+\begin{equation} \label{energy}
+    E(t)=\frac{1}{2}\int_U w_t^2(\boldsymbol{x}, t)+c^2|Dw(\boldsymbol{x}, t)|^2d\boldsymbol{x},
+\end{equation}
+
+for $0 \le t \le T$, where $U$ is a bounded, open subset of $\mathbb{R}^n$, and
+$\boldsymbol{x} \in U$. For a derivation of this \emph{energy} formula for the
+one-dimensional problem, see \cite[Section 3.6.4]{Kev}. We will use
+(\ref{energy}) to prove the uniqueness of the wave equation:
+
+\begin{equation} \label{f45}
+    \begin{aligned}
+        &u_{tt}-c^2\Delta u =0, \quad \textrm{for} \quad \boldsymbol{x} \in U, \quad t \in [0,T]\\
+        &u(\boldsymbol{x}, 0)=0\\
+        &u_t(\boldsymbol{x}, 0)=0.
+    \end{aligned}
+\end{equation}
+
+\newtheorem*{theorem}{Theorem}
+\begin{theorem}
+    There exists at most one function $u \in C^2(U \times [0,T])$ solving
+    (\ref{f45}).
+\end{theorem}
+
+\begin{proof}
+    Let $\tilde{u}$ be another solution such that $\tilde{u} \in C^2(U \times
+    [0,T])$. Then, we can define $w:=u-\tilde{u}$, which solves the same problem
+    as $u$:
+    \begin{equation} \label{f46}
+        \begin{aligned}
+            &w_{tt}-c^2\Delta w =0, \quad \textrm{for} \quad \boldsymbol{x} \in U, \quad t \in [0,T]\\
+            &w(\boldsymbol{x}, 0)=0\\
+            &w_t(\boldsymbol{x}, 0)=0.
+        \end{aligned}
+    \end{equation}
+    Then we can use the energy from (\ref{energy}). Differentiating with respect
+    to time, we obtain:
+    \begin{equation*}
+        \begin{aligned}
+            \diff{E(t)}{t}&=\int_U w_t w_{tt} + c^2 Dw \cdot Dw_t d\boldsymbol{x}\\
+            &=\int_U w_t (w_{tt}-c^2 \Delta w)d\boldsymbol{x}\\
+            &=0, \quad \textrm{from (\ref{f46})}.
+        \end{aligned}
+    \end{equation*}
+    There is no boundary term, so for all $0 \le t \le T$, $E(t)=E(0)=0$, and so
+    $w_t=0$ and $Dw=0$ within $\boldsymbol{x} \in U, t \in [0,T]$. So, since
+    $w(\boldsymbol{x}, 0)=0$, then we can conclude that $w=u-\tilde{u}\equiv 0$.
+    This means that $u$ and $\tilde{u}$ are the same and that the solution of
+    the wave equation is unique.
+\renewcommand\qedsymbol{q.e.d.}
+\end{proof}
 
 \section{Conclusion}
 
