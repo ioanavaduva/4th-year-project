@@ -12,6 +12,8 @@
 \usepackage{amssymb}
 \usepackage{subcaption} 
 \usepackage{amsthm}
+\usepackage{enumitem}
+
 
 % Dash int definitions
 \def\Xint#1{\mathchoice
@@ -996,8 +998,8 @@ formula, see \cite{Ev}.
 \section{Solutions in Higher Dimensions}
 
 In this section, we will generalise the results obtained in sections \ref{sec3d}
-and \ref{sec2d} to higher odd and even dimensions. We separate between odd and
-even as in order to derive the even-dimensional general solution, we require the
+and \ref{sec2d} to higher dimensions. We will separate between odd and
+even dimensions, as in order to derive the even-dimensional solution, we require the
 odd-dimensional one. Note that throughout this section, we will consider
 $c^2=1$, for simplification.
 
@@ -1005,16 +1007,20 @@ $c^2=1$, for simplification.
 
 In our derivation of the general odd-dimensional solution to the wave equation,
 we will follow the method described in \cite[Ch. 2.4.1.d]{Ev}. First, we require some
-technical results. We will not prove them, but more information can be found in
-\cite[Lemma 2]{Ev}. Let $\phi:\mathbb{R} \to \mathbb{R}$ be $C^{k+1}$ ($k+1$
-continuously differentiable), then for $k=1, 2, ...$:
+technical results, which we do not prove, but more information can be found in
+\cite[Ch. 2.4.1.d, Lemma 2]{Ev}. 
 
-\begin{align}
-    &\Big(\diff[2]{}{r}\Big)\Big( \frac{1}{r} \diff{}{r}\Big)^{k-1}(r^{2k-1}\phi(r))=\Big( \frac{1}{r} \diff{}{r}\Big)^k \Big(r^{2k} \diff{\phi}{r}(r) \Big); \label{i} \\
-    &\Big( \frac{1}{r} \diff{}{r}\Big)^{k-1}(r^{2k-1}\phi(r))=\sum^{k-1}_{j=0} \beta_{j}^{k} r^{j+1} \diff[j]{\phi}{r}(r), \label{ii} \\
-    & \textrm{where} \quad \beta_{j}^{k} \quad (j=0,1,...,k-1) \quad \textrm{are inependent of $\phi$}; \notag \\
-    & \beta_{0}^{k}=1 \cdot 3 \cdot 5 \cdot ... \cdot (2k-1). \label{iii}
-\end{align}
+
+\newtheorem{lemma}{Lemma}
+\begin{lemma} \label{lemma}
+    Let $\phi:\mathbb{R} \to \mathbb{R}$ be $C^{k+1}$, then for $k=1, 2, ...$:
+    \begin{align}
+        &\Big(\diff[2]{}{r}\Big)\Big( \frac{1}{r} \diff{}{r}\Big)^{k-1}(r^{2k-1}\phi(r))=\Big( \frac{1}{r} \diff{}{r}\Big)^k \Big(r^{2k} \diff{\phi}{r}(r) \Big); \label{i}\\
+        &\Big( \frac{1}{r} \diff{}{r}\Big)^{k-1}(r^{2k-1}\phi(r))=\sum^{k-1}_{j=0} \beta_{j}^{k} r^{j+1} \diff[j]{\phi}{r}(r), \label{ii} \\
+        &\textrm{where} \quad \beta_{j}^{k} \quad (j=0,1,...,k-1) \quad \textrm{are inependent of $\phi$}; \nonumber \\
+        &\beta_{0}^{k}=1 \cdot 3 \cdot 5 \cdot ... \cdot (2k-1). \label{iii}
+    \end{align}
+\end{lemma}
 
 Assume that $n \ge 3$ is an odd integer such that $n=2k+1$ with $k \ge 1$. Also
 suppose that $u(\boldsymbol{x},t) \in C^{k+1}(\mathbb{R}^n \times \mathbb{R}_{>0})$
@@ -1022,7 +1028,7 @@ solves the n-dimensional wave equation:
 
 \begin{equation} \label{ndimeq}
     \begin{aligned}
-        &u_{tt}-c^2\Delta u =0, \quad \textrm{with} \quad \boldsymbol{x} \in \mathbb{R}^n, \quad t \in \mathbb{R}_{>0}\\
+        &u_{tt}-2\Delta u =0, \quad \textrm{with} \quad \boldsymbol{x} \in \mathbb{R}^n, \quad t \in \mathbb{R}_{>0}\\
         &u(\boldsymbol{x}, 0)=g(\boldsymbol{x})\\
         &u_t(\boldsymbol{x},0)=h(\boldsymbol{x}).
     \end{aligned}
@@ -1041,19 +1047,19 @@ Hence, $U$, as defined in (\ref{averageU}) is $k+1$ continuously differentiable
 \end{equation}
 
 with $r>0$ and $t \ge 0$. Note that at $t=0$, $\hat{U}(r,0)=\hat{G}(r)$ and
-$\hat{U}_t(r,0)=H(r)$. Combining the \emph{Euler-Poisson-Darboux equation}
-(\ref{EPDeq}) with (\ref{i}), (\ref{ii}) and (\ref{iii}), we will show that
-(\ref{ndimUGH}) transforms the \emph{Euler-Poisson-Darboux equation} into the
-wave equation, (\ref{bvp1d}), solved in section \ref{anapplication}, (\ref{bvp1d}). We will
-first show that $\hat{U}$ satisfies (\ref{bvp1d}) for $r>0$:
+$\hat{U}_t(r,0)=H(r)$. Combining the \emph{Euler-Poisson-Darboux equation} with
+Lemma \ref{lemma}, we will show that (\ref{ndimUGH}) transforms (\ref{EPDeq})
+into the wave equation, solved in section \ref{anapplication}. We first show
+that $\hat{U}$ satisfies (\ref{bvp1d}) for $r>0$:
 
 \begin{equation*}
     \begin{aligned}
-        c^2\hat{U}_{rr}&=c^2\Big(\diffp[2]{}{r}\Big)\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U)\\
-        &=c^2\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^k(r^{2k}U_r)\\
-        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^k(c^2r^{2k}U_r)\\
-        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(c^2r^{2k-1}U_{rr}+2kc^2r^{2k-2}U_r)\\
-        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}[r^{2k-1}(c^2U_{rr}+c^2\frac{n-1}{r}U_r)], \quad \textrm{where} \quad n=2k+1\\
+        \hat{U}_{rr}&=\Big(\diffp[2]{}{r}\Big)\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U)\\
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^k(r^{2k}U_r), \quad \textrm{by (\ref{i})}\\
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}\Big(\frac{1}{r}\diff{}{r}\Big)(r^{2k}U_r)\\
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}\Big(\frac{1}{r}(r^{2k}U_{rr}+2kr^{2k-1}U_r)
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U_{rr}+2kr^{2k-2}U_r)\\
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}\Big[r^{2k-1}\Big(U_{rr}+\frac{n-1}{r}U_r\Big)\Big], \quad \textrm{where} \quad n=2k+1\\
         &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U_{tt}), \quad \textrm{from (\ref{EPDeq})}\\
         &=\hat{U}_{tt}.
     \end{aligned}
@@ -1062,7 +1068,7 @@ first show that $\hat{U}$ satisfies (\ref{bvp1d}) for $r>0$:
 We solved (\ref{bvp1d}) in section \ref{anapplication} and the solution is given
 by: 
 \begin{equation}\label{nomorelabels}
-    \hat{U}(r,t)=\frac{1}{2}[\hat{G}(r+ct)-\hat{G}(ct-r)]+\frac{1}{2}\int_{ct-r}^{r+ct}\hat{H}(y)dy,
+    \hat{U}(r,t)=\frac{1}{2}[\hat{G}(r+t)-\hat{G}(t-r)]+\frac{1}{2}\int_{t-r}^{r+t}\hat{H}(y)dy,
 \end{equation}
 
 for all $r\in\mathbb{R}, t \ge 0$. Recall that $u(\boldsymbol{x},t)=\lim_{x
@@ -1073,7 +1079,8 @@ Hence, by (\ref{ii}), we have:
 \begin{equation*}
     \begin{aligned}
         \hat{U}(r,t)&=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U(\boldsymbol{x};r,t))\\
-        &=\sum_{j=0}^{k-1}\beta_j^k r^{j+1} \diffp[j]{}{r}U(\boldsymbol{x};r,t)
+        &=\sum_{j=0}^{k-1}\beta_j^k r^{j+1} \diffp[j]{}{r}U(\boldsymbol{x};r,t)\\ 
+        &=\beta_0^k rU(\boldsymbol{x};r,t)+\beta_1^k r^2U_r(\boldsymbol{x};r,t)+...+\beta_{k-1}^k r^k\diffp[k-1]{}{r}U(\boldsymbol{x};r,t).
     \end{aligned}
 \end{equation*}
 
@@ -1105,13 +1112,12 @@ three-dimensional solution of the wave equation. Hence, (\ref{solnodd}) is a
 general formula for the odd-dimenstional problem.
 
 \subsection{Even Dimensions}
-Continuing with our proof of the high-dimensional wave equations as presented in
-\cite{Ev}, we now assume that $n$ in (\ref{ndimeq}). Suppose that $u$, the
-function that solves the even-dimensional wave equation is $u \in C^m$ (m times
-continuously differentiable), where $m=\frac{n+2}{2}$. The trick is the same as
-in the solution of the two-dimensional problem: we consider the odd-dimensional
-problem and descend into the even dimension through the method of descent. As
-before, let:
+Continuing with our solution of high-dimensional wave equations, as presented in
+\cite[Ch. 2.4.1.e]{Ev}, we now assume that $n$ in (\ref{ndimeq}) is even.
+Suppose that the function that solves the even-dimensional wave equation is $u
+\in C^m$, where $m=\frac{n+2}{2}$. The trick is the same as in the solution of
+the two-dimensional problem: we consider the odd-dimensional problem and descend
+into the even dimension through the \emph{method of descent}. As before, let:
 
 \begin{equation} \label{dot}
     \begin{aligned}
@@ -1121,19 +1127,13 @@ before, let:
     \end{aligned}
 \end{equation}
 
-where 
-
-\begin{equation} \label{ddot}
-    \begin{aligned}
-        &\check{g}(x_1, x_2, ..., x_{n+1}):=g(x_1, x_2, ..., x_n)\\
-        &\check{h}(x_1, x_2, ..., x_{n+1}):=h(x_1, x_2, ..., x_n).
-    \end{aligned}
-\end{equation}
-
-Since $n$ is even, then $n+1$ is odd, and so we can use (\ref{solnodd}) with
-$n+1$ in the place of $n$ in order to secure a formula for $\check{u}$ in terms
-of $\check{g}$ and $\check{h}$. Then (\ref{dot}) and (\ref{ddot}) will
-immediately hold a formula for $u$ in terms of $g$ and $h$. \\
+where $\check{g}(x_1, x_2, ..., x_{n+1}):=g(x_1, x_2, ..., x_n)$ and
+$\check{h}(x_1, x_2, ..., x_{n+1}):=h(x_1, x_2, ..., x_n)$. Since $n$ is even,
+then $n+1$ is odd, and so we can use (\ref{solnodd}) with $n+1$ in the place of
+$n$ in order to secure a formula for $\check{u}$ in terms of $\check{g}$ and
+$\check{h}$. Then (\ref{dot})will immediately hold a formula for $u$ in terms of
+$g$ and $h$. 
+\\
 
 Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write
 $\check{\boldsymbol{x}}=(x_1, x_2, ..., x_n, 0) \in \mathbb{R}^{n+1}$. Then,
