@@ -1057,7 +1057,7 @@ that $\hat{U}$ satisfies (\ref{bvp1d}) for $r>0$:
         \hat{U}_{rr}&=\Big(\diffp[2]{}{r}\Big)\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U)\\
         &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^k(r^{2k}U_r), \quad \textrm{by (\ref{i})}\\
         &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}\Big(\frac{1}{r}\diff{}{r}\Big)(r^{2k}U_r)\\
-        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}\Big(\frac{1}{r}(r^{2k}U_{rr}+2kr^{2k-1}U_r)
+        &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}\Big(\frac{1}{r}(r^{2k}U_{rr}+2kr^{2k-1}U_r)\\
         &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U_{rr}+2kr^{2k-2}U_r)\\
         &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}\Big[r^{2k-1}\Big(U_{rr}+\frac{n-1}{r}U_r\Big)\Big], \quad \textrm{where} \quad n=2k+1\\
         &=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U_{tt}), \quad \textrm{from (\ref{EPDeq})}\\
@@ -1084,14 +1084,26 @@ Hence, by (\ref{ii}), we have:
     \end{aligned}
 \end{equation*}
 
-Therefore, $\lim_{r \rightarrow 0} \frac{\hat{U}}{\beta_0^k r}=\lim_{r
-\rightarrow 0} U(\boldsymbol{x}; r, t)=u(\boldsymbol{x}, t)$, and so, by
-(\ref{nomorelabels}) we get:
+Rearranging, we have:
+
+\begin{equation*}
+    \beta_0^k rU(\boldsymbol{x};r,t) = \hat{U}(r,t) - \beta_1^k r^2U_r(\boldsymbol{x};r,t) - ... -\beta_{k-1}^k r^k\diffp[k-1]{}{r}U(\boldsymbol{x};r,t),
+\end{equation*}
+
+and so,
+
+\begin{equation*}
+    U(\boldsymbol{x};r,t) = \frac{\hat{U}(r,t)}{\beta_0^k r} - \frac{\beta_1^k}{\beta_0^k} rU_r(r,t) - ... - \frac{\beta_{k-1}^k}{\beta_0^k} r^{k-1} \diffp[k-1]{}{r}U(r,t).
+\end{equation*}
+
+Hence,
 
 \begin{equation*}
     \begin{aligned}
-        u(\boldsymbol{x}, t)&=\frac{1}{\beta_0^k} \lim_{r \rightarrow 0}\Big[\frac{\hat{G}(ct+r)-\hat{G}(ct-r)}{2r} + \frac{1}{2r}\int_{ct-r}^{ct+r} \hat{H}(y)dy\Big]\\
-        &= \frac{1}{\beta_0^k}[\hat{G}'(t)+\hat{H}(t)].
+        u(\boldsymbol{x}, t)&=\lim_{r \rightarrow 0}\Big[\frac{\hat{U}(r,t)}{\beta_0^k r} - \frac{\beta_1^k}{\beta_0^k} rU_r(r,t) - ... - \frac{\beta_{k-1}^k}{\beta_0^k} r^{k-1} \diffp[k-1]{}{r}U(r,t)\Big]\\ 
+        &=\lim_{r \rightarrow 0}\frac{\hat{U}(r,t)}{\beta_0^k r}\\ 
+        &=\lim_{r \rightarrow 0} \frac{1}{\beta_0^k} \Big[\frac{\hat{G}(t+r)-\hat{G}(t-r)}{2r} + \frac{1}{2r}\int_{t-r}^{t+r} \hat{H}(\boldsymbol{y})d\boldsymbol{y}\Big]\\
+        &= \frac{1}{\beta_0^k}[\hat{G}'(t)+\hat{H}(t)], \quad \textrm{where} \quad \beta_0^k = 1 \cdot 3 \cdot 5 \cdot ... \cdot (2k-1).
     \end{aligned}
 \end{equation*}
 
@@ -1137,34 +1149,42 @@ $g$ and $h$.
 
 Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write
 $\check{\boldsymbol{x}}=(x_1, x_2, ..., x_n, 0) \in \mathbb{R}^{n+1}$. Then,
-replacing $n$ with $n+1$ in (\ref{solnodd}) becomes:
+replacing $n$ with $n+1$ in (\ref{solnodd}), we have:
 
 \begin{equation} \label{solneven}
-    \begin{split}
-        u(\boldsymbol{x}, t)=\frac{1}{\gamma_{n+1}}\Big[\Big(\diffp[1]{}{t}\Big) & \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{g}d\check{S} \Big)\\
-        &+ \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{h}d\check{S} \Big)\Big],
-    \end{split}
+   % \begin{split}
+        u(\boldsymbol{x}, t)=\frac{1}{\gamma_{n+1}}\Big[\Big(\diffp[1]{}{t}\Big)  \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{g}d\check{S} \Big)
+        + \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{h}d\check{S} \Big)\Big],
+   % \end{split}
 \end{equation} 
 
- where $\partial \check{B}(\boldsymbol{\check{x}},t)$ is the sphere in
- $\mathbb{R}^{n+1}$ centered at $\boldsymbol{\check{x}}$ and of radius $t$, and
- $d\check{S}$ is the n-dimensional surface measure on $\partial
+ where $\gamma_{n+1}=1 \cdot 3 \cdot 5 \cdot ... \cdot (n-1)$, $\partial
+ \check{B}(\boldsymbol{\check{x}},t)$ is the sphere in $\mathbb{R}^{n+1}$
+ centered at $\boldsymbol{\check{x}}$ and of radius $t$, and $d\check{S}$ is the
+ n-dimensional surface measure on $\partial
  \check{B}(\boldsymbol{\check{x}},t)$. Let
- $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$ and consider
+ $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$, where $\Gamma (n)=
+ \int_0^{\infty} e^{-x} x^{n-1} dx$ is the Gamma function, and consider
  $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)}
- \check{g}d\check{S}=\frac{1}{(n+1)\alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}\check{g}d\check{S}$.
- Then $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)}
- \check{g}d\check{S}=\frac{2}{(n+1)\alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}g(\boldsymbol{y})(1+|D\gamma(\boldsymbol{y})|^2)^{1/2}d\boldsymbol{y}$.
- As in the two-dimensional case, the $2$ in the fraction comes from the fact
- that we work with two hemisphere. As before, $(1+|D\gamma
- (\boldsymbol{y})|^2)^{1/2}=t(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{-1/2}$.
- Substituting this into the expression for $\dashint_{\partial
- \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}$, we get:
+ \check{g}(\boldsymbol{y})d\check{S}(\boldsymbol{y})=\frac{1}{(n+1)\alpha(n+1)t^n}\int_{\partial
+ B(\boldsymbol{x},t)}\check{g}(\boldsymbol{y})d\check{S}(\boldsymbol{y})$. Then
+ $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)}
+ \check{g}(\boldsymbol{y})d\check{S}(\boldsymbol{y})=\frac{2}{(n+1)
+ \alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}g(\boldsymbol{y})
+ (1+|D\gamma(\boldsymbol{y})|^2)^{1/2}d\boldsymbol{y}$, where
+ $B(\boldsymbol{x},t)$ is the ball centered at $\boldsymbol{x}$, of radius $t$,
+ as in even dimensions, sphere do not make sense. As in the two-dimensional
+ case, the $2$ in the fraction comes from the fact that we work with two
+ hemisphere. As before, $(1+|D\gamma (\boldsymbol{y})|^2)^{1/2} =
+ t(t^2-|\boldsymbol{y} -\boldsymbol{x}|^2)^{-1/2}$. Substituting this into the
+ expression for $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)}
+ \check{g}(\boldsymbol{y})d\check{S}(\boldsymbol{y})$, we get:
 
  \begin{equation*}
     \begin{aligned}
-        dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}&=\frac{2}{(n+1)\alpha(n+1)t^{n-1}}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}\\
-        &=\frac{2+\alpha(n)}{(n+1)\alpha(n+1)}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d \boldsymbol{y}
+        \dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}&=\frac{2}{(n+1)\alpha(n+1)t^{n-1}}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}\\
+        &=\frac{2t\alpha(n)}{(n+1)\alpha(n+1)\alpha(n)t^n}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d \boldsymbol{y}\\ 
+        &=\frac{2t\alpha(n)}{(n+1)\alpha(n+1)}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d \boldsymbol{y}.
     \end{aligned}
 \end{equation*}
 
@@ -1173,8 +1193,8 @@ We obtain a similar formula with $h$ in the place of $g$, and replacing into
 
 \begin{equation*}
     \begin{split}
-        u(\boldsymbol{x}, t)= \frac{1}{\gamma_{n+1}} \frac{2 \alpha(n)}{(n+1) \alpha (n+1)}&\Big[ \diffp[1]{}{t} \Big(\frac{1}{t} \Big)^{\frac{n-2}{2}} \Big(t^n \dashint_{B(\boldsymbol{x}, t)} \frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big)\\ 
-        & +\Big(\frac{1}{t} \diffp[1]{}{t}\Big)^{\frac{n-2}{2}} \Big(t^n \dashint_{B(\boldsymbol{x},t)} \frac{h(\boldsymbol{y}}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big) \Big].
+        u(\boldsymbol{x}, t)= \frac{1}{\gamma_{n+1}} \frac{2 \alpha(n)}{(n+1) \alpha (n+1)}&\Big[ \Big(\diffp[1]{}{t}\Big) \Big(\frac{1}{t} \Big)^{\frac{n-2}{2}} \Big(t^n \dashint_{B(\boldsymbol{x}, t)} \frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big)\\ 
+        & +\Big(\frac{1}{t} \diffp[1]{}{t}\Big)^{\frac{n-2}{2}} \Big(t^n \dashint_{B(\boldsymbol{x},t)} \frac{h(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big) \Big].
     \end{split}
 \end{equation*}
 
@@ -1186,15 +1206,14 @@ even dimensions:
 \begin{equation} \label{solnev}
     \begin{split}
         u(\boldsymbol{x}, t)= \frac{1}{\gamma_n} &\Big[ \Big(\diffp[1]{}{t}\Big) \Big(\frac{1}{t} \diffp[1]{}{t}\Big)^{\frac{n-2}{2}}\Big(t^n \dashint_{B(\boldsymbol{x}, t)} \frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big)\\
-        &\Big(\frac{1}{t} \diffp[1]{}{t}\Big)^{\frac{n-2}{2}}\Big(t^n \dashint_{B(\boldsymbol{x},t)} \frac{h(\boldsymbol{y}}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big) \Big],
+        & +\Big(\frac{1}{t} \diffp[1]{}{t}\Big)^{\frac{n-2}{2}}\Big(t^n \dashint_{B(\boldsymbol{x},t)} \frac{h(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big) \Big],
     \end{split}
 \end{equation}
 
-where $n$ is even, $\gamma_n=2 \cdot 4 \cdot ... \cdot(n-2) \cdot n$,
-$\boldsymbol{x}\in \mathbb{R}^n$ and $t>0$. Note that for $n=2$, $\gamma_2 = 2$
-and (\ref{solnev}) agrees with \emph{Poisson's formula} (\ref{poiss}) for the
-two-dimensional solution of the wave equation. Hence, (\ref{solnev}) is a
-general formula for the even-dimensional problem.
+where $n$ is even, $\boldsymbol{x}\in \mathbb{R}^n$, and $t>0$. Note that for
+$n=2$, $\gamma_2 = 2$ and (\ref{solnev}) agrees with \emph{Poisson's formula}
+(\ref{poiss}) for the two-dimensional solution of the wave equation. Hence,
+(\ref{solnev}) is a general formula for the even-dimensional problem.
 
 
 \subsection{Uniqueness of Solutions}
@@ -1202,14 +1221,13 @@ In this section, we will show that the solution formulas we found for the wave
 equation in odd and even dimensions are unique. The formulas (\ref{solnodd}) and
 (\ref{solnev}) make us be very careful about the smoothness assumptions we make
 upon the data $g$ and $h$ to ensure we have a continuous twice differentiable
-solution, $u \in C^2$, as we increase the value of $n$. \emph{Evans}, in
+solution, $u \in C^2$, as we increase the value of $n$. \emph[Ch. 2.4.3.a]{Evans}, in
 \cite{Ev}, says that we need another way to measure smoothness and size, and
 introduces the idea of using \emph{energy methods}. These methods are based on
 conservation of energy and will be presenteed in the form of \emph{energy
 integrals}. More information on this topic can be found in \cite[Chapter VI,
-Section 6]{Hil}. \\
-
-The form of the \emph{energy} that we use is the one given in \cite{Ev}:
+Section 6]{Hil}. The form of the \emph{energy} that we use is the one given in
+\cite[Ch. 2.4.3.a, Th. 5]{Ev}:
 
 \begin{equation} \label{energy}
     E(t)=\frac{1}{2}\int_U w_t^2(\boldsymbol{x}, t)+c^2|Dw(\boldsymbol{x}, t)|^2d\boldsymbol{x},
@@ -1217,12 +1235,12 @@ The form of the \emph{energy} that we use is the one given in \cite{Ev}:
 
 for $0 \le t \le T$, where $U$ is a bounded, open subset of $\mathbb{R}^n$, and
 $\boldsymbol{x} \in U$. For a derivation of this \emph{energy} formula for the
-one-dimensional problem, see \cite[Section 3.6.4]{Kev}. We will use
-(\ref{energy}) to prove the uniqueness of the wave equation:
+one-dimensional problem, see \cite[Ch. 3.6.4]{Kev}. We will use
+(\ref{energy}) to prove the uniqueness of the wave equation in any dimension:
 
 \begin{equation} \label{f45}
     \begin{aligned}
-        &u_{tt}-c^2\Delta u =0, \quad \textrm{for} \quad \boldsymbol{x} \in U, \quad t \in [0,T]\\
+        &u_{tt}-c^2\Delta u =0, \quad \textrm{for} \quad \boldsymbol{x} \in U, \quad t \in (0,T]\\
         &u(\boldsymbol{x}, 0)=0\\
         &u_t(\boldsymbol{x}, 0)=0.
     \end{aligned}
@@ -1230,23 +1248,23 @@ one-dimensional problem, see \cite[Section 3.6.4]{Kev}. We will use
 
 \newtheorem*{theorem}{Theorem}
 \begin{theorem}
-    There exists at most one function $u \in C^2(U \times [0,T])$ solving
+    There exists at most one function $u \in C^2(U \times (0,T])$ solving
     (\ref{f45}).
 \end{theorem}
 
 \begin{proof}
     Let $\tilde{u}$ be another solution such that $\tilde{u} \in C^2(U \times
-    [0,T])$. Then, we can define $w:=u-\tilde{u}$, which solves the same problem
+    (0,T])$. Then, we can define $w:=u-\tilde{u}$, which solves the same problem
     as $u$:
     \begin{equation} \label{f46}
         \begin{aligned}
-            &w_{tt}-c^2\Delta w =0, \quad \textrm{for} \quad \boldsymbol{x} \in U, \quad t \in [0,T]\\
+            &w_{tt}-c^2\Delta w =0, \quad \textrm{for} \quad \boldsymbol{x} \in U, \quad t \in (0,T]\\
             &w(\boldsymbol{x}, 0)=0\\
             &w_t(\boldsymbol{x}, 0)=0.
         \end{aligned}
     \end{equation}
-    Then we can use the energy from (\ref{energy}). Differentiating with respect
-    to time, we obtain:
+    Then we can use the energy from (\ref{energy}) by differentiating it with respect
+    to time to we obtain:
     \begin{equation*}
         \begin{aligned}
             \diff{E(t)}{t}&=\int_U w_t w_{tt} + c^2 Dw \cdot Dw_t d\boldsymbol{x}\\
@@ -1254,8 +1272,8 @@ one-dimensional problem, see \cite[Section 3.6.4]{Kev}. We will use
             &=0, \quad \textrm{from (\ref{f46})}.
         \end{aligned}
     \end{equation*}
-    There is no boundary term, so for all $0 \le t \le T$, $E(t)=E(0)=0$, and so
-    $w_t=0$ and $Dw=0$ within $\boldsymbol{x} \in U, t \in [0,T]$. So, since
+    For all $0 \le t \le T$, $E(t)=E(0)=0$, and so
+    $w_t=0$ and $Dw=0$ within $(U \times (0, T]$. So, since
     $w(\boldsymbol{x}, 0)=0$, then we can conclude that $w=u-\tilde{u}\equiv 0$.
     This means that $u$ and $\tilde{u}$ are the same and that the solution of
     the wave equation is unique.
