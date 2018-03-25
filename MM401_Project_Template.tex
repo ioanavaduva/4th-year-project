@@ -4,7 +4,7 @@
 \setlength{\parindent}{0.0cm}
 \setlength{\topmargin}{-1.0cm}
 \setlength{\oddsidemargin}{0.0cm}
-\renewcommand{\baselinestretch}{1.2}
+\renewcommand{\baselinestretch}{1.4}
     
 \usepackage{graphicx}
 \usepackage{amsmath}
@@ -499,7 +499,7 @@ the initial displacement, one moving to the right, and one to the left, see
 \cite[Ch. 2.4.1]{Ev}. Furthermore, this solution does not belong to $C^2$, the set of twice
 differentiable functions, unless $g''(0)=0$.
 
-\section{Solution in Three-Dimensions} \label{sec3d}
+\section{Solution in Three Dimensions} \label{sec3d}
 In this section, we will derive the solution to the three-dimensional wave
 equation (\ref{wave3deq14}), as described in \cite[Chap. 2.4]{Ev}. To do this,
 we will use \emph{spherical means}, which allow us to transform the partial
@@ -951,33 +951,30 @@ technical results, which we do not prove, but more information can be found in
 Assume that $n \ge 3$ is an odd integer such that $n=2k+1$ with $k \ge 1$. Also
 suppose that $u(\boldsymbol{x},t) \in C^{k+1}(\mathbb{R}^n \times \mathbb{R}_{>0})$
 solves the n-dimensional wave equation:
-
 \begin{equation} \label{ndimeq}
     \begin{aligned}
-        &u_{tt}-2\Delta u =0, \quad \textrm{with} \quad \boldsymbol{x} \in \mathbb{R}^n, \quad t \in \mathbb{R}_{>0}\\
+        &u_{tt}-\Delta u =0 \quad \textrm{with} \quad \boldsymbol{x} \in \mathbb{R}^n, \quad t \in \mathbb{R}_{>0}\\
         &u(\boldsymbol{x}, 0)=g(\boldsymbol{x})\\
         &u_t(\boldsymbol{x},0)=h(\boldsymbol{x}).
     \end{aligned}
 \end{equation} 
 
-Hence, $U$, as defined in (\ref{averageU}) is $k+1$ continuously differentiable
-($C^{k+1}$). So, using the definitions in (\ref{averageU}) and
+Hence, $U$, as defined in (\ref{averageU}) is $U \in C^{k+1}(\mathbb{R}^n \times
+\mathbb{R}_{>0})$. So, using the definitions in (\ref{averageU}) and
 (\ref{averageGH}), we introduce the following notation:
-
 \begin{equation} \label{ndimUGH}
     \begin{aligned}
-        &\hat{U}(r,t)=\Big(\frac{1}{r} \diffp[1]{}{r} \Big)^{k-1} (r^{2k-1}U(\boldsymbol{x};r,t))\\
-        &\hat{G}(r)=\Big(\frac{1}{r} \diffp[1]{}{r} \Big)^{k-1} (r^{2k-1}G(\boldsymbol{x};r,t))\\
+        &\hat{U}(r,t)=\Big(\frac{1}{r} \diffp[1]{}{r} \Big)^{k-1} (r^{2k-1}U(\boldsymbol{x};r,t)),\\
+        &\hat{G}(r)=\Big(\frac{1}{r} \diffp[1]{}{r} \Big)^{k-1} (r^{2k-1}G(\boldsymbol{x};r,t)),\\
         &\hat{H}(r)=\Big(\frac{1}{r} \diffp[1]{}{r} \Big)^{k-1} (r^{2k-1}H(\boldsymbol{x};r,t)),
     \end{aligned}
 \end{equation}
 
 with $r>0$ and $t \ge 0$. Note that at $t=0$, $\hat{U}(r,0)=\hat{G}(r)$ and
-$\hat{U}_t(r,0)=H(r)$. Combining the \emph{Euler-Poisson-Darboux equation} with
+$\hat{U}_t(r,0)=\hat{H}(r)$. Combining the \emph{Euler-Poisson-Darboux equation} with
 Lemma \ref{lemma}, we will show that (\ref{ndimUGH}) transforms (\ref{EPDeq})
 into the wave equation, solved in section \ref{anapplication}. We first show
 that $\hat{U}$ satisfies (\ref{bvp1d}) for $r>0$:
-
 \begin{equation*}
     \begin{aligned}
         \hat{U}_{rr}&=\Big(\diffp[2]{}{r}\Big)\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U)\\
@@ -998,10 +995,7 @@ by:
 \end{equation}
 
 for all $r\in\mathbb{R}, t \ge 0$. Recall that $u(\boldsymbol{x},t)=\lim_{x
-\rightarrow 0} U(\boldsymbol{x}; r, t)$.
-
-Hence, by (\ref{ii}), we have:
-
+\rightarrow 0} U(\boldsymbol{x}; r, t)$. Hence, by (\ref{ii}), we have:
 \begin{equation*}
     \begin{aligned}
         \hat{U}(r,t)&=\Big(\frac{1}{r} \diffp[1]{}{r}\Big)^{k-1}(r^{2k-1}U(\boldsymbol{x};r,t))\\
@@ -1011,19 +1005,16 @@ Hence, by (\ref{ii}), we have:
 \end{equation*}
 
 Rearranging, we have:
-
 \begin{equation*}
     \beta_0^k rU(\boldsymbol{x};r,t) = \hat{U}(r,t) - \beta_1^k r^2U_r(\boldsymbol{x};r,t) - ... -\beta_{k-1}^k r^k\diffp[k-1]{}{r}U(\boldsymbol{x};r,t),
 \end{equation*}
 
 and so,
-
 \begin{equation*}
     U(\boldsymbol{x};r,t) = \frac{\hat{U}(r,t)}{\beta_0^k r} - \frac{\beta_1^k}{\beta_0^k} rU_r(r,t) - ... - \frac{\beta_{k-1}^k}{\beta_0^k} r^{k-1} \diffp[k-1]{}{r}U(r,t).
 \end{equation*}
 
 Hence,
-
 \begin{equation*}
     \begin{aligned}
         u(\boldsymbol{x}, t)&=\lim_{r \rightarrow 0}\Big[\frac{\hat{U}(r,t)}{\beta_0^k r} - \frac{\beta_1^k}{\beta_0^k} rU_r(r,t) - ... - \frac{\beta_{k-1}^k}{\beta_0^k} r^{k-1} \diffp[k-1]{}{r}U(r,t)\Big]\\ 
@@ -1035,7 +1026,6 @@ Hence,
 
 Hence, since $n=2k+1$, (\ref{nomorelabels}) and (\ref{iii}) imply the
 representation formula:
-
 \begin{equation} \label{solnodd}
     \begin{split}
         u(\boldsymbol{x}, t)=\frac{1}{\gamma_n}\Big[\Big(\diffp[1]{}{t}\Big) & \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-3}{2}}\Big(t^{n-2} \dashint_{\partial B(\boldsymbol{x},t)}gdS \Big)\\
@@ -1046,17 +1036,16 @@ representation formula:
 where $n$ is odd, $\gamma_n=1 \cdot 3 \cdot ... \cdot (n-2)$ and
 $\boldsymbol{x}\in \mathbb{R}^n$. Note that for $n=3$, $\gamma_3 = 1$ and
 (\ref{solnodd}) agrees with \emph{Kirchhoff's formula} (\ref{KircE}) for the
-three-dimensional solution of the wave equation. Hence, (\ref{solnodd}) is a
-general formula for the odd-dimenstional problem.
+three-dimensional solution of the wave equation. Hence, (\ref{solnodd})
+represents a general formula for the odd-dimenstional problem.
 
 \subsection{Even Dimensions}
 Continuing with our solution of high-dimensional wave equations, as presented in
 \cite[Ch. 2.4.1.e]{Ev}, we now assume that $n$ in (\ref{ndimeq}) is even.
 Suppose that the function that solves the even-dimensional wave equation is $u
-\in C^m$, where $m=\frac{n+2}{2}$. The trick is the same as in the solution of
+\in C^m(\mathbb{R} \times \mathbb{R}_{>0})$, where $m=\frac{n+2}{2}$. The trick is the same as in the solution of
 the two-dimensional problem: we consider the odd-dimensional problem and descend
-into the even dimension through the \emph{method of descent}. As before, let:
-
+into the even dimension through the \emph{method of descent}. Let:
 \begin{equation} \label{dot}
     \begin{aligned}
         &\check{u}(x_1, x_2, ..., x_{n+1}, t):=u(x_1, x_2, ..., x_n, t) \quad \textrm{with} \quad x_1, x_2, ..., x_{n+1} \in \mathbb{R}, \quad t \in [0, \infty)\\
@@ -1069,18 +1058,16 @@ where $\check{g}(x_1, x_2, ..., x_{n+1}):=g(x_1, x_2, ..., x_n)$ and
 $\check{h}(x_1, x_2, ..., x_{n+1}):=h(x_1, x_2, ..., x_n)$. Since $n$ is even,
 then $n+1$ is odd, and so we can use (\ref{solnodd}) with $n+1$ in the place of
 $n$ in order to secure a formula for $\check{u}$ in terms of $\check{g}$ and
-$\check{h}$. Then (\ref{dot})will immediately hold a formula for $u$ in terms of
-$g$ and $h$. 
-\\
+$\check{h}$. Then (\ref{dot}) will immediately hold a formula for $u$ in terms of
+$g$ and $h$.\\
 
 Let $\boldsymbol{x} \in \mathbb{R}^n$, $t>0$, and write
 $\check{\boldsymbol{x}}=(x_1, x_2, ..., x_n, 0) \in \mathbb{R}^{n+1}$. Then,
 replacing $n$ with $n+1$ in (\ref{solnodd}), we have:
-
 \begin{equation} \label{solneven}
    % \begin{split}
-        u(\boldsymbol{x}, t)=\frac{1}{\gamma_{n+1}}\Big[\Big(\diffp[1]{}{t}\Big)  \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{g}d\check{S} \Big)
-        + \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{h}d\check{S} \Big)\Big],
+        u(\boldsymbol{x}, t)=\frac{1}{\gamma_{n+1}}\Big[\Big(\diffp[1]{}{t}\Big)  \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{g}(\boldsymbol{y})d\check{S}(\boldsymbol{y}) \Big)
+        + \Big(\frac{1}{t} \diffp[1]{}{t} \Big)^{\frac{n-2}{2}}\Big(t^{n-1} \dashint_{\partial \check{B}(\boldsymbol{\check{x}},t)}\check{h}(\boldsymbol{y})d\check{S}(\boldsymbol{y}) \Big)\Big],
    % \end{split}
 \end{equation} 
 
@@ -1088,9 +1075,10 @@ replacing $n$ with $n+1$ in (\ref{solnodd}), we have:
  \check{B}(\boldsymbol{\check{x}},t)$ is the sphere in $\mathbb{R}^{n+1}$
  centered at $\boldsymbol{\check{x}}$ and of radius $t$, and $d\check{S}$ is the
  n-dimensional surface measure on $\partial
- \check{B}(\boldsymbol{\check{x}},t)$. Let
- $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$, where $\Gamma (n)=
- \int_0^{\infty} e^{-x} x^{n-1} dx$ is the Gamma function, and consider
+ \check{B}(\boldsymbol{\check{x}},t)$. \\
+ 
+ Let $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$, where $\Gamma
+ (n)= \int_0^{\infty} e^{-x} x^{n-1} dx$ is the Gamma function, and consider
  $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)}
  \check{g}(\boldsymbol{y})d\check{S}(\boldsymbol{y})=\frac{1}{(n+1)\alpha(n+1)t^n}\int_{\partial
  B(\boldsymbol{x},t)}\check{g}(\boldsymbol{y})d\check{S}(\boldsymbol{y})$. Then
@@ -1099,24 +1087,22 @@ replacing $n$ with $n+1$ in (\ref{solnodd}), we have:
  \alpha(n+1)t^n}\int_{B(\boldsymbol{x},t)}g(\boldsymbol{y})
  (1+|D\gamma(\boldsymbol{y})|^2)^{1/2}d\boldsymbol{y}$, where
  $B(\boldsymbol{x},t)$ is the ball centered at $\boldsymbol{x}$, of radius $t$,
- as in even dimensions, sphere do not make sense. As in the two-dimensional
+ as in even dimensions spheres do not make sense. As in the two-dimensional
  case, the $2$ in the fraction comes from the fact that we work with two
  hemisphere. As before, $(1+|D\gamma (\boldsymbol{y})|^2)^{1/2} =
  t(t^2-|\boldsymbol{y} -\boldsymbol{x}|^2)^{-1/2}$. Substituting this into the
  expression for $\dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)}
  \check{g}(\boldsymbol{y})d\check{S}(\boldsymbol{y})$, we get:
-
  \begin{equation*}
     \begin{aligned}
-        \dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}d\check{S}&=\frac{2}{(n+1)\alpha(n+1)t^{n-1}}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}\\
+        \dashint_{\partial \check{B}(\check{\boldsymbol{x}}, t)} \check{g}(\boldsymbol{y})d\check{S}(\boldsymbol{y})&=\frac{2}{(n+1)\alpha(n+1)t^{n-1}}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d\boldsymbol{y}\\
         &=\frac{2t\alpha(n)}{(n+1)\alpha(n+1)\alpha(n)t^n}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d \boldsymbol{y}\\ 
         &=\frac{2t\alpha(n)}{(n+1)\alpha(n+1)}\int_{B(\boldsymbol{x},t)}\frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}}d \boldsymbol{y}.
     \end{aligned}
 \end{equation*}
 
 We obtain a similar formula with $h$ in the place of $g$, and replacing into
-(\ref{solneven}) we obtain:
-
+(\ref{solneven}), we obtain:
 \begin{equation*}
     \begin{split}
         u(\boldsymbol{x}, t)= \frac{1}{\gamma_{n+1}} \frac{2 \alpha(n)}{(n+1) \alpha (n+1)}&\Big[ \Big(\diffp[1]{}{t}\Big) \Big(\frac{1}{t} \Big)^{\frac{n-2}{2}} \Big(t^n \dashint_{B(\boldsymbol{x}, t)} \frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big)\\ 
@@ -1128,7 +1114,6 @@ Since $\gamma_{n+1}=1 \cdot 3 \cdot ... \cdot (n-1)$ and
 $\alpha(n)=\frac{\pi^{\frac{n}{2}}}{\Gamma(\frac{n+2}{2})}$, then $\gamma_n=2
 \cdot 4 \cdot ... \cdot(n-2) \cdot n$. Hence, we obtain the general solution in
 even dimensions:
-
 \begin{equation} \label{solnev}
     \begin{split}
         u(\boldsymbol{x}, t)= \frac{1}{\gamma_n} &\Big[ \Big(\diffp[1]{}{t}\Big) \Big(\frac{1}{t} \diffp[1]{}{t}\Big)^{\frac{n-2}{2}}\Big(t^n \dashint_{B(\boldsymbol{x}, t)} \frac{g(\boldsymbol{y})}{(t^2-|\boldsymbol{y}-\boldsymbol{x}|^2)^{1/2}} d \boldsymbol{y} \Big)\\
@@ -1137,24 +1122,23 @@ even dimensions:
 \end{equation}
 
 where $n$ is even, $\boldsymbol{x}\in \mathbb{R}^n$, and $t>0$. Note that for
-$n=2$, $\gamma_2 = 2$ and (\ref{solnev}) agrees with \emph{Poisson's formula}
+$n=2$, $\gamma_2 = 2$, and so (\ref{solnev}) agrees with \emph{Poisson's formula}
 (\ref{poiss}) for the two-dimensional solution of the wave equation. Hence,
-(\ref{solnev}) is a general formula for the even-dimensional problem.
+(\ref{solnev}) represents a general formula for the even-dimensional problem.
 
 
-\subsection{Uniqueness of Solutions}
+\subsection{Uniqueness of Solutions} \label{uniqueness}
 In this section, we will show that the solution formulas we found for the wave
 equation in odd and even dimensions are unique. The formulas (\ref{solnodd}) and
 (\ref{solnev}) make us be very careful about the smoothness assumptions we make
 upon the data $g$ and $h$ to ensure we have a continuous twice differentiable
-solution, $u \in C^2$, as we increase the value of $n$. \emph[Ch. 2.4.3.a]{Evans}, in
-\cite{Ev}, says that we need another way to measure smoothness and size, and
-introduces the idea of using \emph{energy methods}. These methods are based on
-conservation of energy and will be presenteed in the form of \emph{energy
-integrals}. More information on this topic can be found in \cite[Chapter VI,
-Section 6]{Hil}. The form of the \emph{energy} that we use is the one given in
-\cite[Ch. 2.4.3.a, Th. 5]{Ev}:
-
+solution, $u \in C^2(\mathbb{R} \times \mathbb{R_{>0})}$, as we increase the
+value of $n$. \emph{Evans}, in \cite[Ch. 2.4.3.a]{Ev}, says that we need another
+way to measure smoothness and size, and introduces the idea of using
+\emph{energy methods}. These methods are based on conservation of energy and
+is presenteed in the form of \emph{energy integrals}. More information on
+this topic can be found in \cite[Chapter VI, Section 6]{Hil}. The form of the
+\emph{energy} that we use is the one given in \cite[Ch. 2.4.3.a, Th. 5]{Ev}:
 \begin{equation} \label{energy}
     E(t)=\frac{1}{2}\int_U w_t^2(\boldsymbol{x}, t)+c^2|Dw(\boldsymbol{x}, t)|^2d\boldsymbol{x},
 \end{equation}
@@ -1163,7 +1147,6 @@ for $0 \le t \le T$, where $U$ is a bounded, open subset of $\mathbb{R}^n$, and
 $\boldsymbol{x} \in U$. For a derivation of this \emph{energy} formula for the
 one-dimensional problem, see \cite[Ch. 3.6.4]{Kev}. We will use
 (\ref{energy}) to prove the uniqueness of the wave equation in any dimension:
-
 \begin{equation} \label{f45}
     \begin{aligned}
         &u_{tt}-c^2\Delta u =0, \quad \textrm{for} \quad \boldsymbol{x} \in U, \quad t \in (0,T]\\
@@ -1189,7 +1172,7 @@ one-dimensional problem, see \cite[Ch. 3.6.4]{Kev}. We will use
             &w_t(\boldsymbol{x}, 0)=0.
         \end{aligned}
     \end{equation}
-    Then we can use the energy from (\ref{energy}) by differentiating it with respect
+    Then we can use the energy from (\ref{energy}). Differentiating it with respect
     to time to we obtain:
     \begin{equation*}
         \begin{aligned}
@@ -1199,7 +1182,7 @@ one-dimensional problem, see \cite[Ch. 3.6.4]{Kev}. We will use
         \end{aligned}
     \end{equation*}
     For all $0 \le t \le T$, $E(t)=E(0)=0$, and so
-    $w_t=0$ and $Dw=0$ within $(U \times (0, T]$. So, since
+    $w_t=0$ and $Dw=0$ within $(U \times (0, T])$. So, since
     $w(\boldsymbol{x}, 0)=0$, then we can conclude that $w=u-\tilde{u}\equiv 0$.
     This means that $u$ and $\tilde{u}$ are the same and that the solution of
     the wave equation is unique.
@@ -1207,6 +1190,17 @@ one-dimensional problem, see \cite[Ch. 3.6.4]{Kev}. We will use
 \end{proof}
 
 \section{Conclusion}
+
+In this project, we looked at the wave equation  in a number of dimensions. We
+first derived the one-dimensional equation from physical arguments. The next
+section focused on solving the one-dimensional problem to obtain the D'Alembert
+solution, (\ref{DAla}). Section \ref{sec3d} presented the solution of the three-dimensional equation. We
+used spherical means to derive the solution, (\ref{KircE}) known as Kirchhoff's
+formula. In the next section, Section \ref{sec2d}, we used the method of descent to
+derive the two-dimensional solution, (\ref{poiss}). Lastly, we generalised the
+solutions in two and three dimensions to higher dimensions, by separating
+between odd and even. Lastly, we showed that the solutions we derived are
+unique, in Section \ref{uniqueness}.
 
 \newpage 
 
